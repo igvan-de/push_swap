@@ -1,41 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   checker.c                                          :+:    :+:            */
+/*   ft_swap.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/07/17 16:49:54 by igvan-de      ########   odam.nl         */
+/*   Created: 2019/05/21 16:53:16 by igvan-de       #+#    #+#                */
+/*   Updated: 2019/06/07 16:55:02 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
-
-static int	checker(int argc, char **argv)
+void		ft_swap(int *a, int *b)
 {
-	int		i;
+	int		tmp;
 
-	i = 1;
-	if (argc < 1)
-		return (0);
-	while (i < argc)
-	{
-		argv++;
-		if (ft_isnum(*argv) == 0)
-		{
-			ft_putstr("ERROR\n");
-			return(0);
-		}
-		i++;
-
-	}
-	return (0);
-}
-
-int			main(int argc, char **argv)
-{
-	checker(argc, argv);
-	return (0);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
