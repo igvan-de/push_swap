@@ -6,7 +6,7 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/07/18 17:32:43 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/08/06 17:34:42 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ COLOR_DEFAULT = $(shell printf "\e[39m")
 
 CHECKER = checker
 PUSH_SWAP = push_swap
-SRCS_CHECKER = checker.c
-SRCS_PUSH_SWAP = checker.c
+SRCS_CHECKER = checker.c operators.c ft_stackadd.c ft_newnode.c
+SRCS_PUSH_SWAP = checker.c operators.c ft_stackadd.c ft_newnode.c
 OBJ = $(SRCS:%.c=%.o)
 FLAGS = -Wall -Werror -Wextra
 LIB = Printf/libftprintf.a

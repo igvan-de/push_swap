@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_stackadd.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/06 17:40:20 by igvan-de      ########   odam.nl         */
+/*   Created: 2019/08/06 17:29:46 by igvan-de       #+#    #+#                */
+/*   Updated: 2019/08/06 17:38:27 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Libft/includes/libft.h"
-#include "./Libft/includes/get_next_line.h" //Not sure if this is needed. CHECK LATER!!!
-#include "./Printf/ft_printf.h"
+#include "push_swap.h"
 
-#include <stdlib.h>
-
-
-typedef struct 			s_stack
+void	ft_stackadd(t_stack **node, t_stack *new)
 {
-	int					number;
-	struct s_stack		*next;
-}             			t_stack;
-
-
-int					sa(char **argv);
-
-void				ft_stackadd(t_stack **alst, t_stack *new);
-
-t_stack 			*ft_newnode(int number);
+	if (!node || !new)
+		return ;
+	new->next = *node;
+	*node = new;
+}
