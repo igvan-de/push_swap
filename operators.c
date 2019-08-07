@@ -6,25 +6,81 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/06 14:13:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/06 17:42:30 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/07 17:52:10 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> //REMOVE!!!!!!!!!!!!!!!!!!!!!
 
-int		sa(char **argv)
+int		sa_sb(t_stack *stack)
 {
 	int a;
 	int b;
 
-	if (argv[1] == NULL)
+	if (!stack->number)
 		return (0);
-	a = ft_atoi(argv[1]);
-	b = ft_atoi(argv[2]);
+	a = stack->number;
+	b = stack->next->number;
 	ft_swap(&a, &b);
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // size = argc 

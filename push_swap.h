@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/06 17:40:20 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/07 17:36:12 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ typedef struct 			s_stack
 }             			t_stack;
 
 
-int					sa(char **argv);
+int					sa_sb(t_stack *stack);
 
 void				ft_stackadd(t_stack **alst, t_stack *new);
 
 t_stack 			*ft_newnode(int number);
+t_stack 			*ft_emptynode(void);

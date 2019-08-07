@@ -6,18 +6,18 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/06 17:43:23 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/07 17:51:59 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	checker_commands(char **argv)
+static void	checker_commands(t_stack *stack_a, t_stack *stack_b)
 {
-	if (ft_strcmp(*argv, "sa"))
-		sa(argv);
+	// if (ft_strcmp(stack_a, "sa"))
+		sa_sb(stack_a);
 	// if (ft_strcmp(*argv, "sb"))
-	// 	//function for SB
+		sa_sb(stack_b);
 	// if (ft_strcmp(*argv, "ss"))
 	// 	//function for SS
 	// if (ft_strcmp(*argv, "pa"))
@@ -38,37 +38,33 @@ static void	checker_commands(char **argv)
 	// 	//function for RRR
 }
 
-// static int	checker_sort(int argc, char **argv)
-// {
-// 	int		i;
-// 	int		j;
+static int	checker_sort(t_stack *stack)
+{
+	int		i;
+	int		j;
 
-// 	i = 1;
-// 	j = 2;
-// 	while (j < argc)
-// 	{
-// 		if (ft_atoi(argv[i]) <= ft_atoi(argv[j]))
-// 		{
-// 			i++;
-// 			if (ft_strcmp(argv[j], "\n") != 0)
-// 				j++;
-// 		}
-// 		else
-// 		{
-// 			ft_printf("KO\n");
-// 			exit (0);
-// 		}
-// 	}
-// 	ft_printf("OK\n");
-// 	return (0);
-// }
+	i = 1;
+	j = 2;
+	while (stack->next != NULL)
+	{
+		if (stack->number <= stack->next->number)
+			stack = stack->next;
+		else
+		{
+			ft_printf("KO\n");
+			exit (0);
+		}
+	}
+	ft_printf("OK\n");
+	return (0);
+}
 
 static int	valid_input(int argc, char **argv)
 {
 	int		i;
 
 	i = 1;
-	if (argc < 1)
+	if (argc <= 1)
 		exit (0);
 	while (i < argc)
 	{
@@ -85,24 +81,23 @@ static int	valid_input(int argc, char **argv)
 
 int			main(int argc, char **argv)
 {
-	valid_input(argc, argv);
 	t_stack		*stack_a;
+	t_stack		*stack_b;
 	t_stack		*new_stack_a;
-	// t_stack		*stack_b;
 	int 		i;
 
 	i = 1;
-	stack_a = ft_newnode(ft_atoi(argv[i]));
-	if (argc < 1)
-		exit (0);
+	valid_input(argc, argv);
+	stack_b = ft_emptynode();
 	while (argv[i])
 	{
 		new_stack_a = ft_newnode(ft_atoi(argv[i]));
+		if (new_stack_a == NULL)
+			return (0);
 		ft_stackadd(&stack_a, new_stack_a);
 		i++;
-		ft_printf("%d\n", new_stack_a->number);
 	}
-	checker_commands(argv);
-	// checker_sort(argc, argv);
+	checker_commands(stack_a, stack_b);
+	checker_sort(stack_a);
 	return (0);
 }
