@@ -6,22 +6,53 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/07 17:51:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/08 17:38:30 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	checker_commands(t_stack *stack_a, t_stack *stack_b)
+static void	test_print(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack *tmp;
+
+	tmp = stack_a;
+	ft_printf("a = ");
+	if (tmp->next == NULL)
+		ft_printf("%d ", tmp->number);
+	while (tmp->next != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			ft_printf("%d ", tmp->number);
+	}
+	ft_printf("\n");
+	tmp = stack_b;
+	ft_printf("b = ");
+	if (tmp->next == NULL)
+		ft_printf("%d ", tmp->number);
+	while (tmp->next != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			ft_printf("%d ", tmp->number);
+	}
+	ft_printf("\n");
+}
+
+static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
 {
 	// if (ft_strcmp(stack_a, "sa"))
-		sa_sb(stack_a);
-	// if (ft_strcmp(*argv, "sb"))
-		sa_sb(stack_b);
-	// if (ft_strcmp(*argv, "ss"))
-	// 	//function for SS
+	// 	sa_sb(stack_a);
+	// // if (ft_strcmp(*argv, "sb"))
+	// 	sa_sb(stack_b);
+	// // if (ft_strcmp(*argv, "ss"))
+	// 	sa_sb(stack_a);
+	// 	sa_sb(stack_b);
 	// if (ft_strcmp(*argv, "pa"))
-	// 	//function for PA
+		pa(stack_a, stack_b);
 	// if (ft_strcmp(*argv, "pb"))
 	// 	//function for PB
 	// if (ft_strcmp(*argv, "ra"))
@@ -88,16 +119,18 @@ int			main(int argc, char **argv)
 
 	i = 1;
 	valid_input(argc, argv);
-	stack_b = ft_emptynode();
+	stack_a = NULL;
+	stack_b = NULL;
 	while (argv[i])
 	{
 		new_stack_a = ft_newnode(ft_atoi(argv[i]));
 		if (new_stack_a == NULL)
 			return (0);
-		ft_stackadd(&stack_a, new_stack_a);
+		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	checker_commands(stack_a, stack_b);
+	checker_commands(&stack_a, &stack_b);
+	test_print(stack_a, stack_b);
 	checker_sort(stack_a);
 	return (0);
 }

@@ -6,14 +6,13 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/07 17:26:15 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/07 17:44:40 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/08 16:04:52 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-void	ft_stackadd(t_stack **node, t_stack *new)
+void	ft_stackaddback(t_stack **node, t_stack *new)
 {
 	t_stack		*tmp;
 
@@ -26,6 +25,12 @@ void	ft_stackadd(t_stack **node, t_stack *new)
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = new;
+}
+
+void	ft_stackaddfront(t_stack **node, t_stack *new)
+{
+	new->next = *node;
+	*node = new;
 }
 
 t_stack *ft_newnode(int number)

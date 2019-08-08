@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstdelone.c                                     :+:    :+:            */
+/*   delnode.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: igvan-de <marvin@codam.nl>                   +#+                     */
+/*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/01 16:39:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/08 13:53:57 by igvan-de      ########   odam.nl         */
+/*   Created: 2019/08/08 13:58:49 by igvan-de       #+#    #+#                */
+/*   Updated: 2019/08/08 14:08:06 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "push_swap.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+void	ft_delnode(t_stack *stack)
 {
-	if (del == NULL || *alst == NULL)
+	if (stack == NULL)
 		return ;
-	del((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	free(stack);
+	stack = NULL;
 }

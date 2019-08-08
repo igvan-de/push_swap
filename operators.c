@@ -6,27 +6,31 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/06 14:13:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/07 17:52:10 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/08 16:36:39 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		sa_sb(t_stack *stack)
+int		sa_sb(t_stack **stack)
 {
-	int a;
-	int b;
-
-	if (!stack->number)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 		return (0);
-	a = stack->number;
-	b = stack->next->number;
-	ft_swap(&a, &b);
+	ft_swap(&(*stack)->number, &(*stack)->next->number);
 	return (0);
 }
 
+int		pa(t_stack **stack_1, t_stack **stack_2)
+{
+	t_stack	*node2;
 
-
+	if (*stack_1 == NULL)
+		return (0);
+	node2 = (*stack_1)->next;
+	ft_stackaddfront(stack_2, *stack_1);
+	*stack_1 = node2;
+	return (0);
+}
 
 
 

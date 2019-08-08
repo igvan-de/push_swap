@@ -6,7 +6,7 @@
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 08:19:57 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/05/09 17:55:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/08 14:49:07 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (!alst || !new)
+	if (*alst == NULL || new == NULL)
 		return ;
 	new->next = *alst;
 	*alst = new;
