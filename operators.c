@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/06 14:13:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/08 16:36:39 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/09 16:58:59 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		sa_sb(t_stack **stack)
 	return (0);
 }
 
-int		pa(t_stack **stack_1, t_stack **stack_2)
+int		pa_pb(t_stack **stack_1, t_stack **stack_2)
 {
 	t_stack	*node2;
 
@@ -32,6 +32,36 @@ int		pa(t_stack **stack_1, t_stack **stack_2)
 	return (0);
 }
 
+int		ra_rb(t_stack **stack)
+{
+	t_stack	*node2;
+
+	if (*stack == NULL)
+		return (0);
+	node2 = (*stack)->next;
+	ft_stackaddback(stack, *stack);
+	(*stack)->next = NULL;	//To make sure that ->next doens't point to something else the NULL to make sure a infinite loop is bypassed
+	*stack = node2;
+	return (0);
+}
+
+int		rra_rrb(t_stack **stack)
+{
+	t_stack	*lastnode;
+	t_stack *temp;
+
+	if (*stack == NULL)
+		return (0);
+	lastnode = *stack;
+	while (lastnode->next != NULL)
+		lastnode = lastnode->next;
+	temp = lastnode;
+	(*stack)->next = NULL;	//To make sure that ->next doens't point to something else the NULL to make sure a infinite loop is bypassed
+	ft_stackaddfront(stack, lastnode);
+	*stack = lastnode;
+	// free(temp);
+	return (0);
+}
 
 
 

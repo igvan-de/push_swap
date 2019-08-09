@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/08 17:38:30 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/09 16:24:31 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,20 @@ static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
 	// 	sa_sb(stack_a);
 	// 	sa_sb(stack_b);
 	// if (ft_strcmp(*argv, "pa"))
-		pa(stack_a, stack_b);
+		pa_pb(stack_a, stack_b);
+		pa_pb(stack_a, stack_b);
+		// pa_pb(stack_a, stack_b);
 	// if (ft_strcmp(*argv, "pb"))
-	// 	//function for PB
+		// pa_pb(stack_b, stack_a);
 	// if (ft_strcmp(*argv, "ra"))
-	// 	//function for RA
+		// ra_rb(stack_a);
 	// if (ft_strcmp(*argv, "rb"))
-	// 	//function for RB
+		// ra_rb(stack_b);
 	// if (ft_strcmp(*argv, "rr"))
-	// 	//function for RR
+		// ra_rb(stack_a);
+		// ra_rb(stack_b);
 	// if (ft_strcmp(*argv, "rra"))
+		rra_rrb(stack_a);
 	// 	//function for RRA
 	// if (ft_strcmp(*argv, "rrb"))
 	// 	//function for RRB
