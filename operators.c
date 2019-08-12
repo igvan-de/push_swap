@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/06 14:13:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/09 16:58:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/12 16:12:06 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,14 @@ int		ra_rb(t_stack **stack)
 int		rra_rrb(t_stack **stack)
 {
 	t_stack	*lastnode;
-	t_stack *temp;
 
-	if (*stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return (0);
 	lastnode = *stack;
-	while (lastnode->next != NULL)
+	while (lastnode->next->next != NULL)
 		lastnode = lastnode->next;
-	temp = lastnode;
-	(*stack)->next = NULL;	//To make sure that ->next doens't point to something else the NULL to make sure a infinite loop is bypassed
-	ft_stackaddfront(stack, lastnode);
-	*stack = lastnode;
-	// free(temp);
+	ft_stackaddfront(stack, lastnode->next);
+	lastnode->next = NULL;
 	return (0);
 }
 

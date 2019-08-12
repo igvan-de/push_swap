@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/09 16:24:31 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/12 17:13:34 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
 		// ra_rb(stack_b);
 	// if (ft_strcmp(*argv, "rra"))
 		rra_rrb(stack_a);
+		rra_rrb(stack_b);
 	// 	//function for RRA
 	// if (ft_strcmp(*argv, "rrb"))
 	// 	//function for RRB
@@ -106,7 +107,7 @@ static int	valid_input(int argc, char **argv)
 		argv++;
 		if (ft_isnum(*argv) == 0)
 		{
-			ft_putstr("ERROR\n");
+			ft_printf("ERROR\n");
 			exit(0);
 		}
 		i++;
