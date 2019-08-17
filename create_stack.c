@@ -55,3 +55,22 @@ t_stack *ft_emptynode(void)
 	new_node->next = NULL;
 	return (new_node);
 }
+
+void	reverse(t_stack **stack)
+{
+	t_stack	*previous;
+	t_stack	*current;
+	t_stack	*next;
+
+	current = *stack;
+	previous = NULL;
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
+	}
+	*stack = previous;
+}
+

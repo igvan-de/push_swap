@@ -76,11 +76,6 @@ static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
 
 static int	checker_sort(t_stack *stack)
 {
-	int		i;
-	int		j;
-
-	i = 1;
-	j = 2;
 	while (stack->next != NULL)
 	{
 		if (stack->number <= stack->next->number)
@@ -135,6 +130,8 @@ int			main(int argc, char **argv)
 		i++;
 	}
 	checker_commands(&stack_a, &stack_b);
+	test_print(stack_a, stack_b);
+	reverse(&stack_a);
 	test_print(stack_a, stack_b);
 	checker_sort(stack_a);
 	return (0);

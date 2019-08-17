@@ -14,11 +14,9 @@
 
 static int		ft_intcounter(int n)
 {
-	int			i;
 	unsigned	len;
 
 	len = 0;
-	i = 0;
 	if (n == 0)
 		return (1);
 	if (n < 0)
