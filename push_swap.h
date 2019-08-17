@@ -37,6 +37,7 @@ void				ft_stackaddfront(t_stack **alst, t_stack *new);
 void				ft_stackaddback(t_stack **node, t_stack *new);
 void				ft_delnode(t_stack *stack);
 void				reverse(t_stack **stack);
+void				algorithm(t_stack **stack_a);
 
 t_stack 			*ft_newnode(int number);
 t_stack 			*ft_emptynode(void);

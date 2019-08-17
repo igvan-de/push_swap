@@ -42,8 +42,8 @@ static void	test_print(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("\n");
 }
 
-static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
-{
+//static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
+//{
 	// if (ft_strcmp(stack_a, "sa"))
 	// 	sa_sb(stack_a);
 	// // if (ft_strcmp(*argv, "sb"))
@@ -52,8 +52,8 @@ static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
 	// 	sa_sb(stack_a);
 	// 	sa_sb(stack_b);
 	// if (ft_strcmp(*argv, "pa"))
-		pa_pb(stack_a, stack_b);
-		pa_pb(stack_a, stack_b);
+//		pa_pb(stack_a, stack_b);
+//		pa_pb(stack_a, stack_b);
 		// pa_pb(stack_a, stack_b);
 	// if (ft_strcmp(*argv, "pb"))
 		// pa_pb(stack_b, stack_a);
@@ -62,17 +62,17 @@ static void	checker_commands(t_stack **stack_a, t_stack **stack_b)
 	// if (ft_strcmp(*argv, "rb"))
 		// ra_rb(stack_b);
 	// if (ft_strcmp(*argv, "rr"))
-		// ra_rb(stack_a);
-		// ra_rb(stack_b);
+//		 ra_rb(stack_a);
+//		 ra_rb(stack_b);
 	// if (ft_strcmp(*argv, "rra"))
-		rra_rrb(stack_a);
-		rra_rrb(stack_b);
+	//	rra_rrb(stack_a);
+	//	rra_rrb(stack_b);
 	// 	//function for RRA
 	// if (ft_strcmp(*argv, "rrb"))
 	// 	//function for RRB
 	// if (ft_strcmp(*argv, "rrr"))
 	// 	//function for RRR
-}
+//}
 
 static int	checker_sort(t_stack *stack)
 {
@@ -129,9 +129,10 @@ int			main(int argc, char **argv)
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	checker_commands(&stack_a, &stack_b);
-	test_print(stack_a, stack_b);
-	reverse(&stack_a);
+//	checker_commands(&stack_a, &stack_b);
+//	test_print(stack_a, stack_b);
+	algorithm(&stack_a);
+	ft_printf("after algorithm\n");
 	test_print(stack_a, stack_b);
 	checker_sort(stack_a);
 	return (0);

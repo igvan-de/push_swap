@@ -15,8 +15,8 @@ COLOR_DEFAULT = $(shell printf "\e[39m")
 
 CHECKER = checker
 PUSH_SWAP = push_swap
-SRCS_CHECKER = checker.c operators.c create_stack.c delnode.c
-SRCS_PUSH_SWAP = checker.c operators.c create_stack.c delnode.c
+SRCS_CHECKER = checker.c operators.c create_stack.c delnode.c push_swap.c
+SRCS_PUSH_SWAP = checker.c operators.c create_stack.c delnode.c push_swap.c
 OBJ = $(SRCS:%.c=%.o)
 FLAGS = -Wall -Werror -Wextra
 LIB = Printf/libftprintf.a
