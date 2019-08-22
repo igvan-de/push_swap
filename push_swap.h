@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/09 16:01:31 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/22 16:34:18 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,13 @@ typedef struct 			s_stack
 
 typedef struct			s_place
 {
-	int			i;
-}				t_place;
+	int					i;
+}						t_place;
+
+typedef struct 			s_chunksize
+{
+	int					size;
+}						t_chunksize;
 
 int					sa_sb(t_stack **stack);
 int					pa_pb(t_stack **stack_1, t_stack **stack_2);
@@ -37,7 +42,11 @@ void				ft_stackaddfront(t_stack **alst, t_stack *new);
 void				ft_stackaddback(t_stack **node, t_stack *new);
 void				ft_delnode(t_stack *stack);
 void				reverse(t_stack **stack);
-void				algorithm(t_stack **stack_a);
+
+void				algorithm(t_stack **stack_a, t_stack **stack_b, int i); // maybe need to delete
+
+void				size_chunk(int i, t_chunksize *chunksize);
+void				smallest_chunk(t_stack **stack,	t_chunksize	*cnksize);
 
 t_stack 			*ft_newnode(int number);
 t_stack 			*ft_emptynode(void);
