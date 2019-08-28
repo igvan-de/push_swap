@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/06 14:13:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/22 15:34:51 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/23 12:29:19 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ra_rb(t_stack **stack)
 	if (*stack == NULL)
 		return (0);
 	node2 = (*stack)->next;
-	ft_stackaddback(stack, *stack);
+	ft_stackaddback(&node2, *stack);
 	(*stack)->next = NULL;	//To make sure that ->next doens't point to something else the NULL to make sure a infinite loop is bypassed
 	*stack = node2;
 	ft_printf("ra_rb\n");

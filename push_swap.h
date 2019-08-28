@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/22 16:34:18 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/08/28 14:58:31 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ typedef struct 			s_stack
 	int					number;
 	struct s_stack		*next;
 }             			t_stack;
-
-typedef struct			s_place
-{
-	int					i;
-}						t_place;
 
 typedef struct 			s_chunksize
 {
@@ -46,7 +41,7 @@ void				reverse(t_stack **stack);
 void				algorithm(t_stack **stack_a, t_stack **stack_b, int i); // maybe need to delete
 
 void				size_chunk(int i, t_chunksize *chunksize);
-void				smallest_chunk(t_stack **stack,	t_chunksize	*cnksize);
+void				smallest_chunk(t_stack **stack,	/*t_chunksize	*cnksize*/int chunk_size);
 
 t_stack 			*ft_newnode(int number);
 t_stack 			*ft_emptynode(void);
