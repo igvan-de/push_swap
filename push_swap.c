@@ -36,7 +36,6 @@ void	test(t_stack **stack_a)
 	{
 		while (c1 >= 0)
 		{
-			ft_printf("\ntestprint\n");
 			ra_rb(stack_a);
 			c1--;
 		}

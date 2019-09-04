@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/07 17:26:15 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/08/23 14:12:41 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/04 11:15:11 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,5 @@ void	reverse(t_stack **stack)
 		previous = current;
 		current = next;
 	}
-	// while (previous != NULL)
-	// {
-	// 	ft_printf("previous = %d\n", previous->number);
-	// 	previous = previous->next;
-	// }
 	*stack = previous;
 }
