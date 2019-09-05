@@ -6,13 +6,35 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 14:31:01 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/04 19:01:09 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/05 18:13:32 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		size_chunk(int i)
+static void	find_smallest(t_stack *stack, t_chunk *chunk)
+{
+	chunk->lowest_value = stack->number;
+	while (stack != NULL)
+	{
+		if (stack->number < chunk->lowest_value)
+			chunk->lowest_value = stack->number;
+		stack = stack->next;
+	}
+}
+
+static void	find_highest(t_stack *stack, t_chunk *chunk)
+{
+	chunk->highest_value = stack->number;
+	while (stack != NULL)
+	{
+		if (stack->number > chunk->highest_value)
+			chunk->highest_value = stack->number;
+		stack = stack->next;
+	}
+}
+
+int			size_chunk(int i)
 {
 	int		chunksize;
 
@@ -34,37 +56,65 @@ int		size_chunk(int i)
 	return (chunksize);
 }
 
-int		wich_chunk(t_stack **stack, t_median *max_int)
+void		chunk_value(t_stack **stack, t_chunk *chunk, int chunksize)
 {
-	t_stack	*tmp;
+	t_stack	*probe;
+	int		i;
 
-	tmp = *stack;
-	while (tmp != NULL)
+	probe = *stack;
+	i = 0;
+	chunk->max_chunk_value = probe->number;
+	find_smallest(*stack, chunk);
+	find_highest(*stack, chunk);
+	while (i < chunksize)
 	{
-		if (tmp->number <= max_int->chunk1)
-			return (max_int->chunk1);
-		tmp = tmp->next;
+		probe = *stack;
+		while (probe != NULL)
+		{
+			if (probe->number < chunk->max_chunk_value && probe->number > chunk->lowest_value)
+				chunk->max_chunk_value = probe->number;
+			probe = probe->next;
+		}
+		i++;
 	}
-	tmp = *stack;
-	while (tmp != NULL)
-	{
-		if (tmp->number <= max_int->chunk2)
-			return (max_int->chunk2);
-		tmp = tmp->next;
-	}
-	tmp = *stack;
-	while (tmp != NULL)
-	{
-		if (tmp->number <= max_int->chunk3)
-			return (max_int->chunk3);
-		tmp = tmp->next;
-	}
-	tmp = *stack;
-	while (tmp != NULL)
-	{
-		if (tmp->number <= max_int->chunk4)
-			return (max_int->chunk4);
-		tmp = tmp->next;
-	}
-	return (0);
+	# ifdef DEBUG
+		ft_printf("max_chunk_value = %d\n", chunk->max_chunk_value);
+		ft_printf("lowest_value = %d\n", chunk->lowest_value);
+		ft_printf("highest_value = %d\n", chunk->highest_value);
+	# endif
 }
+
+// int		wich_chunk(t_stack **stack)//, t_chunk *chunk)
+// {
+// 	t_stack	*tmp;
+
+// 	tmp = *stack;
+// 	while (tmp != NULL)
+// 	{
+// 		if (tmp->number <= chunk->chunk1)
+// 			return (chunk->chunk1);
+// 		tmp = tmp->next;
+// 	}
+// 	tmp = *stack;
+// 	while (tmp != NULL)
+// 	{
+// 		if (tmp->number <= chunk->chunk2)
+// 			return (chunk->chunk2);
+// 		tmp = tmp->next;
+// 	}
+// 	tmp = *stack;
+// 	while (tmp != NULL)
+// 	{
+// 		if (tmp->number <= chunk->chunk3)
+// 			return (chunk->chunk3);
+// 		tmp = tmp->next;
+// 	}
+// 	tmp = *stack;
+// 	while (tmp != NULL)
+// 	{
+// 		if (tmp->number <= chunk->chunk4)
+// 			return (chunk->chunk4);
+// 		tmp = tmp->next;
+// 	}
+// 	return (0);
+// }
