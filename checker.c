@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/05 17:56:43 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/06 17:42:35 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,6 @@ void	test_print(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("\n");
 }
 
-static int	checker_sort(t_stack *stack)
-{
-	while (stack->next != NULL)
-	{
-		if (stack->number <= stack->next->number)
-			stack = stack->next;
-		else
-		{
-			ft_printf("KO\n");
-			exit (0);
-		}
-	}
-	ft_printf("OK\n");
-	return (0);
-}
-
 static int	valid_input(int argc, char **argv)
 {
 	int		i;
@@ -66,6 +50,18 @@ static int	valid_input(int argc, char **argv)
 			exit(0);
 		}
 		i++;
+	}
+	return (0);
+}
+
+int	checker_sort(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->number <= stack->next->number)
+			stack = stack->next;
+		else
+			return (1);
 	}
 	return (0);
 }
@@ -95,6 +91,12 @@ int			main(int argc, char **argv)
 	//checker_commands(&stack_a, &stack_b);
 	algorithm(&stack_a, &stack_b, chunk, i - 1);
 	test_print(stack_a, stack_b);
-	checker_sort(stack_a);
+	if (checker_sort(stack_a) == 1)
+	{
+		ft_printf("KO\n");
+		exit (0);
+	}
+	else if (checker_sort(stack_a) == 0)
+		ft_printf("OK\n");
 	return (0);
 }

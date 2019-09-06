@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/05 19:03:33 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/06 17:37:31 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "./Printf/ft_printf.h"
 
 #include <stdlib.h>
-#define DEBUG
+// #define DEBUG
 
 typedef struct 			s_stack
 {
@@ -42,6 +42,8 @@ int					pa_pb(t_stack **stack_1, t_stack **stack_2);
 int					ra_rb(t_stack **stack);
 int					rra_rrb(t_stack **stack);
 int					size_chunk(int i);
+int					calculate_chunk_amount(int chuksize, int i);
+int					checker_sort(t_stack *stack);
 
 void				ft_stackaddfront(t_stack **alst, t_stack *new);
 void				ft_stackaddback(t_stack **node, t_stack *new);
@@ -50,7 +52,6 @@ void				reverse(t_stack **stack);
 void				chunk_value(t_stack **stack, t_chunk *chunk, int chunksize);
 
 void				algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i); // maybe need to delete
-void				swap(t_stack **stack, t_chunk *chunk, int chunksize); //Check to make it static
 
 t_stack 			*ft_newnode(int number);
 t_stack 			*ft_emptynode(void);
