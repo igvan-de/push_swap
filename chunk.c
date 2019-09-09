@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 14:31:01 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/06 16:39:31 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/09 16:29:03 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	find_smallest(t_stack *stack, t_chunk *chunk)
 	}
 }
 
-static void	find_highest(t_stack *stack, t_chunk *chunk)
+void	find_highest(t_stack *stack, t_chunk *chunk)
 {
 	chunk->highest_value = stack->number;
 	while (stack != NULL)
@@ -39,7 +39,7 @@ int			size_chunk(int i)
 	int		chunksize;
 
 	chunksize = 0;
-	if (i < 100)
+	if (i <= 100)
 	{
 		if (i % 5 == 0)
 			chunksize = i / 5;

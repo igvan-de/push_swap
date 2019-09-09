@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/06 17:42:35 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/09 15:35:17 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,19 @@ static int	valid_input(int argc, char **argv)
 	return (0);
 }
 
-int	checker_sort(t_stack *stack)
+static void	checker_sort(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{
 		if (stack->number <= stack->next->number)
 			stack = stack->next;
 		else
-			return (1);
+		{
+			ft_printf("KO\n");
+			exit (0);
+		}
 	}
-	return (0);
+	ft_printf("OK\n");
 }
 
 int			main(int argc, char **argv)
@@ -88,15 +91,9 @@ int			main(int argc, char **argv)
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	//checker_commands(&stack_a, &stack_b);
 	algorithm(&stack_a, &stack_b, chunk, i - 1);
 	test_print(stack_a, stack_b);
-	if (checker_sort(stack_a) == 1)
-	{
-		ft_printf("KO\n");
-		exit (0);
-	}
-	else if (checker_sort(stack_a) == 0)
-		ft_printf("OK\n");
+	if (stack_a != NULL) //remove later
+		checker_sort(stack_a);
 	return (0);
 }

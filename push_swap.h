@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/06 17:37:31 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/09 16:01:18 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "./Printf/ft_printf.h"
 
 #include <stdlib.h>
-// #define DEBUG
+#define DEBUG
 
 typedef struct 			s_stack
 {
@@ -30,10 +30,11 @@ typedef struct 			s_chunk
 	int					highest_value;
 }						t_chunk;
 
-typedef struct			s_value
+typedef struct			s_value //check purpose of this values!!
 {
 	int					start;
 	int					end;
+	int					counter;
 }						t_value;
 
 
@@ -43,7 +44,6 @@ int					ra_rb(t_stack **stack);
 int					rra_rrb(t_stack **stack);
 int					size_chunk(int i);
 int					calculate_chunk_amount(int chuksize, int i);
-int					checker_sort(t_stack *stack);
 
 void				ft_stackaddfront(t_stack **alst, t_stack *new);
 void				ft_stackaddback(t_stack **node, t_stack *new);
@@ -56,4 +56,8 @@ void				algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i); 
 t_stack 			*ft_newnode(int number);
 t_stack 			*ft_emptynode(void);
 
+void				push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *value);
+
 void				test_print(t_stack *stack_a, t_stack *stack_b);//delte at the end
+
+void	find_highest(t_stack *stack, t_chunk *chunk);//Make static later if needed
