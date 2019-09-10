@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/09 15:35:17 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/10 17:55:55 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	test_print(t_stack *stack_a, t_stack *stack_b)
 		tmp = tmp->next;
 	}
 	ft_printf("\n");
+	if (stack_b == NULL)
+		return ;
 	tmp = stack_b;
 	ft_printf("b = ");
 	while (tmp != NULL)
@@ -93,7 +95,6 @@ int			main(int argc, char **argv)
 	}
 	algorithm(&stack_a, &stack_b, chunk, i - 1);
 	test_print(stack_a, stack_b);
-	if (stack_a != NULL) //remove later
-		checker_sort(stack_a);
+	checker_sort(stack_a);
 	return (0);
 }

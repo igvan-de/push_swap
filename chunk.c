@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 14:31:01 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/09 16:29:03 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/10 13:16:19 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,10 @@ int		calculate_chunk_amount(int chunksize, int i)
 	int chunk_amount;
 
 	chunk_amount = 0;
-	if (i <= 100)
-	{
-		if (i % 5 == 0)
-			chunk_amount = i / chunksize;
-		else
-			chunk_amount = i / chunksize + 1;
-	}
-	else if (i > 100)
-	{
-		if (i % 11 == 0)
-			chunk_amount = i / chunksize;
-		else
-			chunk_amount = i / chunksize + 1;
-	}
+	if (i % chunksize == 0)
+		chunk_amount = i / chunksize;
+	else
+		chunk_amount = i / chunksize + 1;
 	return (chunk_amount);
 }
 

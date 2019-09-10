@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/09 16:01:18 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/10 17:20:10 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ t_stack 			*ft_newnode(int number);
 t_stack 			*ft_emptynode(void);
 
 void				push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *value);
+
 
 void				test_print(t_stack *stack_a, t_stack *stack_b);//delte at the end
 
