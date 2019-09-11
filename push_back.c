@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/09 15:46:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/10 18:19:21 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/11 11:51:51 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,3 @@ void			push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *
 	}
 }
 //check if rr is possible!!!!!
-//check if sa_sb function if it will help to create less operations!!!

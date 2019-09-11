@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/10 17:20:10 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/11 16:12:42 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,43 @@ typedef struct			s_value //check purpose of this values!!
 }						t_value;
 
 
+/*
+**===============================OPERATION FUNCTIONS===============================
+*/
 int					sa_sb(t_stack **stack);
 int					pa_pb(t_stack **stack_1, t_stack **stack_2);
 int					ra_rb(t_stack **stack);
 int					rra_rrb(t_stack **stack);
-int					size_chunk(int i);
-int					calculate_chunk_amount(int chuksize, int i);
+
+void				ss(t_stack **stack_a, t_stack **stack_b);
+void				rr(t_stack **stack_a, t_stack **stack_b);
+void				rrr(t_stack **stack_a, t_stack **stack_b);
+
+/*
+**===============================STACK FUNCTIONS===============================
+*/
+t_stack 			*ft_newnode(int number);
+t_stack 			*ft_emptynode(void);
 
 void				ft_stackaddfront(t_stack **alst, t_stack *new);
 void				ft_stackaddback(t_stack **node, t_stack *new);
 void				ft_delnode(t_stack *stack);
 void				reverse(t_stack **stack);
+
+/*
+**===============================CHUNK FUNCTIONS===============================
+*/
+int					size_chunk(int i);
+int					calculate_chunk_amount(int chuksize, int i);
+
 void				chunk_value(t_stack **stack, t_chunk *chunk, int chunksize);
+void				find_highest(t_stack *stack, t_chunk *chunk);//Make static later if needed
 
-void				algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i); // maybe need to delete
-
-t_stack 			*ft_newnode(int number);
-t_stack 			*ft_emptynode(void);
-
+/*
+**===============================ALGORITHM===============================
+*/
+void				algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i);
 void				push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *value);
 
 
 void				test_print(t_stack *stack_a, t_stack *stack_b);//delte at the end
-
-void	find_highest(t_stack *stack, t_chunk *chunk);//Make static later if needed

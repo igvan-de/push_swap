@@ -6,7 +6,7 @@
 #    By: igvan-de <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/17 12:10:38 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/07/17 16:38:42 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/09/11 13:54:12 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,17 +81,15 @@ SRCS =	ft_atoi.c \
 		ft_strarrdel.c \
 		get_next_line.c 
 		
-HEADER = libft.h
 OBJ := $(SRCS:%.c=%.o)
-FLAGS = -Wall -Werror -Wextra -I libft.h -c $(SRCS)
+FLAGS = -Wall -Werror -Wextra
 NORM = norminette $(SRCS) $(HEADER) | grep -e "Error" -e "Warning" -B 1
 
 all: $(NAME)
 
 $(NAME):
-	@gcc $(FLAGS)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRCS)
+	@ar rcs $(NAME) $(OBJ)
 
 clean: 
 	@/bin/rm -f $(OBJ)

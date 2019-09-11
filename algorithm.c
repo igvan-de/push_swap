@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/10 18:02:07 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/11 12:24:57 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,12 @@ void			algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i)
 			swap(stack_a, chunk, chunksize, value);
 			pa_pb(stack_a, stack_b);
 			i++;
+			if ((*stack_b)->next != NULL)
+			{
+				ft_printf("number = %d\nnext number = %d\n", (*stack_b)->number ,(*stack_b)->next->number);
+				if ((*stack_b)->number < (*stack_b)->next->number)
+					sa_sb(stack_b);
+			}
 			test_print(*stack_a, *stack_b);
 		}
 		chunk_amount--;
