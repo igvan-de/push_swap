@@ -1,17 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   checker.c                                          :+:    :+:            */
+/*   print.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/15 16:44:56 by igvan-de      ########   odam.nl         */
+/*   Created: 2019/09/15 16:08:27 by igvan-de       #+#    #+#                */
+/*   Updated: 2019/09/15 16:51:36 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
+void	print(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack *tmp;
+
+	tmp = stack_a;
+	ft_printf("a = ");
+	while (tmp != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+	if (stack_b == NULL)
+		return ;
+	tmp = stack_b;
+	ft_printf("b = ");
+	while (tmp != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+}
+
+//NEED TO COMBINE IT WITH CHECKER.C
 int			checker_sort(char **argv)
 {
 	int	i;
@@ -26,22 +51,5 @@ int			checker_sort(char **argv)
 		}
 		i++;
 	}
-	return (0);
-}
-
-int			main(int argc, char **argv)
-{
-	int		fd;
-
-	if (argc == 0)
-		return (0);
-	fd = open(*argv, O_RDONLY);
-	if (checker_sort(argv) == 1)
-	{
-			ft_printf("KO\n");
-			exit (0);
-	}
-	else
-		ft_printf("OK\n");
 	return (0);
 }

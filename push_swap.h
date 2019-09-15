@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/11 16:12:42 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/15 16:17:46 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ typedef struct			s_value //check purpose of this values!!
 	int					counter;
 }						t_value;
 
-
 /*
-**===============================OPERATION FUNCTIONS===============================
+**===============================OPERATION FUNCTIONS============================
 */
 int					sa_sb(t_stack **stack);
 int					pa_pb(t_stack **stack_1, t_stack **stack_2);
@@ -71,10 +70,14 @@ void				chunk_value(t_stack **stack, t_chunk *chunk, int chunksize);
 void				find_highest(t_stack *stack, t_chunk *chunk);//Make static later if needed
 
 /*
-**===============================ALGORITHM===============================
+**===============================ALGORITHM FUNCTIONS===========================
 */
 void				algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i);
 void				push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *value);
 
+/*
+**===============================PRINTING FUNCTION=============================
+*/
+void				print(t_stack *stack_a, t_stack *stack_b);//delte at the end
 
-void				test_print(t_stack *stack_a, t_stack *stack_b);//delte at the end
+int			checker_sort(char **argv);

@@ -6,7 +6,7 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/09/11 15:46:31 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/09/15 16:22:41 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ COLOR_DEFAULT = $(shell printf "\e[39m")
 CHECKER = checker
 PUSH_SWAP = push_swap
 SRCS_CHECKER = checker.c
-SRCS_PUSH_SWAP = operators.c operations_double.c stack.c delnode.c chunk.c algorithm.c push_back.c
+SRCS_PUSH_SWAP = push_swap.c operators.c operations_double.c stack.c delnode.c chunk.c algorithm.c push_back.c print.c
 OBJ_PUSH_SWAP = $(SRCS_PUSH_SWAP:%.c=%.o)
 OBJ_CHECKER = $(SRCS_CHECKER:%.c=%.o)
 FLAGS = -Wall -Werror -Wextra
@@ -44,7 +44,7 @@ $(PUSH_SWAP): $(OBJ_PUSH_SWAP)
 	@echo "$(PRINT_PLUS) Compiling completed"
 
 clean:
-	@rm -f $(OBJ_PUSH_SWAP)
+	@rm -f $(OBJ_PUSH_SWAP) && rm -f $(OBJ_CHECKER)
 	@make -C ./Libft clean && make -C ./Printf clean
 	@echo "$(PRINT_PLUS) Cleaning objectives completed"
 

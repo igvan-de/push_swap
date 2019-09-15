@@ -6,36 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/11 15:47:13 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/15 16:40:02 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//DELETE
-void	test_print(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack *tmp;
-
-	tmp = stack_a;
-	ft_printf("a = ");
-	while (tmp != NULL)
-	{
-		ft_printf("%d ", tmp->number);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
-	if (stack_b == NULL)
-		return ;
-	tmp = stack_b;
-	ft_printf("b = ");
-	while (tmp != NULL)
-	{
-		ft_printf("%d ", tmp->number);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
-}
 
 static int	valid_input(int argc, char **argv)
 {
@@ -57,6 +32,31 @@ static int	valid_input(int argc, char **argv)
 	return (0);
 }
 
+static int	double_input(char **argv)
+{
+	char	*current;
+	int		i;
+	int		j;
+
+	i = 1;
+	j = 0;
+	while (argv[i])
+	{
+		current = argv[i];
+		j = i;
+		while (argv[j])
+		{
+			j++;
+			if (argv[j] == '\0')
+				break ;
+			if (ft_strcmp(current, argv[j]) == 0)
+				exit(0);
+		}
+		i++;
+	}
+	return (0);
+}
+
 int			main(int argc, char **argv)
 {
 	t_stack		*stack_a;
@@ -67,6 +67,7 @@ int			main(int argc, char **argv)
 
 	i = 1;
 	valid_input(argc, argv);
+	double_input(argv);
 	stack_a = NULL;
 	stack_b = NULL;
 	chunk = NULL;
@@ -79,7 +80,8 @@ int			main(int argc, char **argv)
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	algorithm(&stack_a, &stack_b, chunk, i - 1);
-	test_print(stack_a, stack_b);
+	if (checker_sort(argv) == 1)
+		algorithm(&stack_a, &stack_b, chunk, i - 1);
+	print(stack_a, stack_b);
 	return (0);
 }
