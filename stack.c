@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   create_stack.c                                     :+:    :+:            */
+/*   stack.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/07 17:26:15 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/04 11:15:11 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/17 17:48:22 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_stackaddback(t_stack **node, t_stack *new)
+void		ft_stackaddback(t_stack **stack, t_stack *new)
 {
 	t_stack		*tmp;
 
-	tmp = *node;
-	if (*node == NULL)
+	tmp = *stack;
+	if (*stack == NULL)
 	{
-		*node = new;
+		*stack = new;
 		return ;
 	}
 	while (tmp->next != NULL)
@@ -27,13 +27,13 @@ void	ft_stackaddback(t_stack **node, t_stack *new)
 	tmp->next = new;
 }
 
-void	ft_stackaddfront(t_stack **node, t_stack *new)
+voiD		ft_stackaddfront(t_stack **stack, t_stack *new)
 {
-	new->next = *node;
-	*node = new;
+	new->next = *stack;
+	*stack = new;
 }
 
-t_stack *ft_newnode(int number)
+t_stack		*ft_newnode(int number)
 {
 	t_stack		*new_node;
 
@@ -45,7 +45,7 @@ t_stack *ft_newnode(int number)
 	return (new_node);
 }
 
-t_stack *ft_emptynode(void)
+t_stack		*ft_emptynode(void)
 {
 	t_stack		*new_node;
 
@@ -56,7 +56,7 @@ t_stack *ft_emptynode(void)
 	return (new_node);
 }
 
-void	reverse(t_stack **stack)
+void		reverse(t_stack **stack)
 {
 	t_stack	*previous;
 	t_stack	*current;

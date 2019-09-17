@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 14:31:01 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/10 13:16:19 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/17 17:39:27 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int			size_chunk(int i)
 	return (chunksize);
 }
 
-int		calculate_chunk_amount(int chunksize, int i)
+int			calculate_chunk_amount(int chunksize, int i)
 {
-	int chunk_amount;
+	int 	chunk_amount;
 
 	chunk_amount = 0;
 	if (i % chunksize == 0)
@@ -79,7 +79,8 @@ void		chunk_value(t_stack **stack, t_chunk *chunk, int chunksize)
 	find_smallest(*stack, chunk);
 	find_highest(*stack, chunk);
 	previous = chunk->lowest_value;
-	chunk->max_chunk_value = probe->number; //doenst work if first number is smallest!
+	chunk->max_chunk_value = probe->number;
+//doenst work if first number is smallest!
 	while (i < chunksize)
 	{
 		probe = *stack;
@@ -93,8 +94,4 @@ void		chunk_value(t_stack **stack, t_chunk *chunk, int chunksize)
 		previous = chunk->max_chunk_value;
 		i++;
 	}
-	# ifdef DEBUG
-		ft_printf("max_chunk_value = %d\n", chunk->max_chunk_value);
-		ft_printf("lowest_value = %d\n", chunk->lowest_value);
-	# endif
 }

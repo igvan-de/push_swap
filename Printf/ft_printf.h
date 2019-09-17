@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/25 14:15:09 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/05/16 14:12:16 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/16 12:58:29 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,24 @@
 # define CL_FLAGS (1 << 9)
 # define PREC_FLAGS (1 << 10)
 # define PMIN_FLAGS (1 << 11)
+
+# define COLOR_BLACK "\033[22;30m"
+# define COLOR_RED "\033[22;31m"
+# define COLOR_GREEN "\033[22;32m"
+# define COLOR_YELLOW "\033[22;33m"
+# define COLOR_BLUE "\033[22;34m"
+# define COLOR_MAGENTA "\033[22;35m"
+# define COLOR_CYAN "\033[22;36m"
+# define COLOR_GRAY "\033[22;37m"
+# define COLOR_DARK_GRAY "\033[01;30m"
+# define COLOR_BOLD_RED "\033[01;31m"
+# define COLOR_BOLD_GREEN "\033[01;32m"
+# define COLOR_BOLD_YELLOW "\033[01;33m"
+# define COLOR_BOLD_BLUE "\033[01;34m"
+# define COLOR_BOLD_MAGENTA "\033[01;35m"
+# define COLOR_BOLD_CYAN "\033[01;36m"
+# define COLOR_WHITE "\033[01;37m"
+# define COLOR_RESET "033[0m"
 
 # define CONVS "dDiufFoxXcCsSpbUO%"
 # define FLAGS "lh.-+#* L0123456789zj"

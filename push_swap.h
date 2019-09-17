@@ -6,78 +6,77 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/15 16:17:46 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/17 17:51:46 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Libft/includes/libft.h"
-#include "./Libft/includes/get_next_line.h" //Not sure if this is needed. CHECK LATER!!!
 #include "./Printf/ft_printf.h"
-
 #include <stdlib.h>
-#define DEBUG
 
-typedef struct 			s_stack
+typedef struct			s_stack
 {
 	int					number;
 	struct s_stack		*next;
-}             			t_stack;
+}						t_stack;
 
-typedef struct 			s_chunk
+typedef struct			s_chunk
 {
 	int					max_chunk_value;
 	int					lowest_value;
 	int					highest_value;
 }						t_chunk;
 
-typedef struct			s_value //check purpose of this values!!
+typedef struct			s_value
 {
 	int					start;
 	int					end;
-	int					counter;
 }						t_value;
 
 /*
 **===============================OPERATION FUNCTIONS============================
 */
-int					sa_sb(t_stack **stack);
-int					pa_pb(t_stack **stack_1, t_stack **stack_2);
-int					ra_rb(t_stack **stack);
-int					rra_rrb(t_stack **stack);
+int						sa_sb(t_stack **stack);
+int						pa_pb(t_stack **stack_1, t_stack **stack_2);
+int						ra_rb(t_stack **stack);
+int						rra_rrb(t_stack **stack);
 
-void				ss(t_stack **stack_a, t_stack **stack_b);
-void				rr(t_stack **stack_a, t_stack **stack_b);
-void				rrr(t_stack **stack_a, t_stack **stack_b);
+void					ss(t_stack **stack_a, t_stack **stack_b);
+void					rr(t_stack **stack_a, t_stack **stack_b);
+void					rrr(t_stack **stack_a, t_stack **stack_b);
 
 /*
 **===============================STACK FUNCTIONS===============================
 */
-t_stack 			*ft_newnode(int number);
-t_stack 			*ft_emptynode(void);
+t_stack					*ft_newnode(int number);
+t_stack					*ft_emptynode(void);
 
-void				ft_stackaddfront(t_stack **alst, t_stack *new);
-void				ft_stackaddback(t_stack **node, t_stack *new);
-void				ft_delnode(t_stack *stack);
-void				reverse(t_stack **stack);
+void					ft_stackaddfront(t_stack **alst, t_stack *new);
+void					ft_stackaddback(t_stack **node, t_stack *new);
+void					ft_delnode(t_stack *stack);
+void					reverse(t_stack **stack);
 
 /*
 **===============================CHUNK FUNCTIONS===============================
 */
-int					size_chunk(int i);
-int					calculate_chunk_amount(int chuksize, int i);
+int						size_chunk(int i);
+int						calculate_chunk_amount(int chuksize, int i);
 
-void				chunk_value(t_stack **stack, t_chunk *chunk, int chunksize);
-void				find_highest(t_stack *stack, t_chunk *chunk);//Make static later if needed
+void					chunk_value(t_stack **stack, t_chunk *chunk,
+						int chunksize);
+void					find_highest(t_stack *stack, t_chunk *chunk);
 
 /*
 **===============================ALGORITHM FUNCTIONS===========================
 */
-void				algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i);
-void				push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *value);
+int						is_sorted(t_stack *stack);
+
+void					algorithm(t_stack **stack_a, t_stack **stack_b,
+						t_chunk *chunk, int i);
+void					push_back(t_stack **stack_a, t_stack **stack_b,
+						t_chunk *chunk);
 
 /*
 **===============================PRINTING FUNCTION=============================
 */
-void				print(t_stack *stack_a, t_stack *stack_b);//delte at the end
-
-int			checker_sort(char **argv);
+void					print(t_stack *stack_a, t_stack *stack_b);

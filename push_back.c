@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/09 15:46:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/11 11:51:51 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/17 16:14:02 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int      counter(t_stack *stack, int biggest)
 	return (counter);
 }
 
-void			push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *value)
+void			push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk)
 {
 	t_stack	*prob;
 	int		start;
@@ -51,8 +51,8 @@ void			push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *
 			while (start > 0)
 			{
 				ra_rb(stack_b);
+				ft_printf("rb\n");
 				start--;
-				value->counter++;
 			}
 		}
 		else if (end < start)
@@ -60,13 +60,12 @@ void			push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, t_value *
 			while (end >= 0)
 			{
 				rra_rrb(stack_b);
+				ft_printf("rrb\n");
 				end--;
-				value->counter++;
 			}
 		}
 		pa_pb(stack_b, stack_a);
-		value->counter++;
+		ft_printf("pa\n");
 		i--;
 	}
 }
-//check if rr is possible!!!!!

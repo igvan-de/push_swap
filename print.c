@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 16:08:27 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/15 16:51:36 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/17 17:26:34 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,19 @@ void	print(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("\n");
 }
 
-//NEED TO COMBINE IT WITH CHECKER.C
-int			checker_sort(char **argv)
+int		is_sorted(t_stack *stack)
 {
-	int	i;
+	t_stack	*prob;
 
-	i = 1;
-	while (argv[i])
+	prob = stack;
+	while (prob)
 	{
-		if (argv[i + 1] != '\0')
+		if (prob->next != NULL)
 		{
-			if (ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
+			if (prob->number > prob->next->number)
 				return (1);
 		}
-		i++;
+		prob = prob->next;
 	}
 	return (0);
 }

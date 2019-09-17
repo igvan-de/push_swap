@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/15 13:29:20 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/17 17:39:34 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int		shortest_steps_end(t_stack *stack, int start, int end, t_value *valu
 	return (counter);
 }
 
-static void			swap(t_stack **stack, t_chunk *chunk, int chunksize, t_value *value)
+static void		swap(t_stack **stack, t_chunk *chunk, int chunksize, t_value *value)
 {
 	int			big_start;
 	int			big_end;
@@ -67,10 +67,6 @@ static void			swap(t_stack **stack, t_chunk *chunk, int chunksize, t_value *valu
 	reverse(stack);
 	while (chunksize > 0)
 	{
-		#ifdef DEBUG
-			ft_printf("start = %d\n end = %d\n", value->start, value->end);
-			ft_printf("big_start = %d\n big_end = %d\n", big_start, big_end);
-		#endif
 		if (big_start == 0)
 			break ;
 		if (big_start <= big_end && (value->start < value->end || value->start == value->end))
@@ -78,8 +74,8 @@ static void			swap(t_stack **stack, t_chunk *chunk, int chunksize, t_value *valu
 			while (big_start > 0)
 			{
 				ra_rb(stack);
+				ft_printf("ra\n");
 				big_start--;
-				value->counter++;
 			}
 		}
 		else if (big_start > big_end || value->start > value->end)
@@ -87,8 +83,8 @@ static void			swap(t_stack **stack, t_chunk *chunk, int chunksize, t_value *valu
 			while (big_end >= 0)
 			{
 				rra_rrb(stack);
+				ft_printf("rra\n");
 				big_end--;
-				value->counter++;
 			}
 		}
 		chunksize--;
@@ -115,19 +111,22 @@ void			algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i)
 		chunk_value(stack_a, chunk, chunksize);//statement for empty list!
 		while (i < chunk_size_)
 		{
+			if (is_sorted(*stack_a) == 0)
+				break ;
 			swap(stack_a, chunk, chunksize, value);
 			pa_pb(stack_a, stack_b);
+			ft_printf("pb\n");
 			i++;
 			if ((*stack_b)->next != NULL)
 			{
-				ft_printf("number = %d\nnext number = %d\n", (*stack_b)->number ,(*stack_b)->next->number);
 				if ((*stack_b)->number < (*stack_b)->next->number)
+				{
 					sa_sb(stack_b);
+					ft_printf("sb\n");
+				}
 			}
-			// test_print(*stack_a, *stack_b);
 		}
 		chunk_amount--;
 	}
-	push_back(stack_a, stack_b, chunk, value);
-	ft_printf("counter = %d\n", value->counter);
+	push_back(stack_a, stack_b, chunk);
 }
