@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/07 17:26:15 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/17 17:48:22 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/18 12:34:29 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_stackaddback(t_stack **stack, t_stack *new)
 	tmp->next = new;
 }
 
-voiD		ft_stackaddfront(t_stack **stack, t_stack *new)
+void		ft_stackaddfront(t_stack **stack, t_stack *new)
 {
 	new->next = *stack;
 	*stack = new;

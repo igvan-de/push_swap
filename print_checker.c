@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print.c                                            :+:    :+:            */
+/*   print_checker.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/09/15 16:08:27 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/17 17:26:34 by igvan-de      ########   odam.nl         */
+/*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
+/*   Updated: 2019/09/18 17:55:41 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	print(t_stack *stack_a, t_stack *stack_b)
+void		print(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack *tmp;
 
@@ -36,19 +36,26 @@ void	print(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("\n");
 }
 
-int		is_sorted(t_stack *stack)
+void			color_print(t_stack *stack_a, t_stack *stack_b, char **argv, int count)
 {
-	t_stack	*prob;
-
-	prob = stack;
-	while (prob)
+	if (ft_strequ(*argv, "-c") == 1)
 	{
-		if (prob->next != NULL)
-		{
-			if (prob->number > prob->next->number)
-				return (1);
-		}
-		prob = prob->next;
+		ft_printf(COLOR_BOLD_YELLOW);
+		print(stack_a, stack_b);
+		ft_printf(COLOR_RESET);
 	}
-	return (0);
+	if (ft_strequ(*argv, "-i") == 1)
+	{
+		ft_printf(COLOR_WHITE"==== STEP %d ====\n", count);
+		ft_printf(COLOR_RESET);
+		print(stack_a, stack_b);
+	}
+	if (ft_strequ(*argv, "-ic") == 1)
+	{
+		ft_printf(COLOR_WHITE"==== STEP %d ====\n", count);
+		ft_printf(COLOR_RESET);
+		ft_printf(COLOR_BOLD_YELLOW);
+		print(stack_a, stack_b);
+		ft_printf(COLOR_RESET);
+	}
 }

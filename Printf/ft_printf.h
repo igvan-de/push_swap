@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/25 14:15:09 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/16 12:58:29 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/18 13:54:17 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define COLOR_BOLD_MAGENTA "\033[01;35m"
 # define COLOR_BOLD_CYAN "\033[01;36m"
 # define COLOR_WHITE "\033[01;37m"
-# define COLOR_RESET "033[0m"
+# define COLOR_RESET "\033[0m"
 
 # define CONVS "dDiufFoxXcCsSpbUO%"
 # define FLAGS "lh.-+#* L0123456789zj"

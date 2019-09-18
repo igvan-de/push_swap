@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/17 17:51:46 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/18 12:43:26 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ void					find_highest(t_stack *stack, t_chunk *chunk);
 /*
 **===============================ALGORITHM FUNCTIONS===========================
 */
-int						is_sorted(t_stack *stack);
-
 void					algorithm(t_stack **stack_a, t_stack **stack_b,
 						t_chunk *chunk, int i);
 void					push_back(t_stack **stack_a, t_stack **stack_b,

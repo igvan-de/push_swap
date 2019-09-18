@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/17 17:39:34 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/18 15:17:08 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,6 @@ void			algorithm(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk, int i)
 		chunk_value(stack_a, chunk, chunksize);//statement for empty list!
 		while (i < chunk_size_)
 		{
-			if (is_sorted(*stack_a) == 0)
-				break ;
 			swap(stack_a, chunk, chunksize, value);
 			pa_pb(stack_a, stack_b);
 			ft_printf("pb\n");

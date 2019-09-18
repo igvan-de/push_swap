@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/17 17:48:08 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/18 17:44:56 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,17 @@ int			main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	chunk = (t_chunk*)ft_memalloc(sizeof(t_chunk));
+	if (argc == 1)
+		return (-1);
 	while (argv[i])
 	{
 		new_stack_a = ft_newnode(ft_atoi(argv[i]));
 		if (new_stack_a == NULL)
-			return (0);//check return values for errors!
+			return (-1);
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	algorithm(&stack_a, &stack_b, chunk, i - 1);
-	print(stack_a, stack_b);
+	if (i > 2)
+		algorithm(&stack_a, &stack_b, chunk, i - 1);
 	return (0);
 }
