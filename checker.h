@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 13:01:02 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/18 17:51:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/19 14:14:44 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,4 @@ void	ft_stackaddback(t_stack **stack, t_stack *new);
 **===============================PRINTING FUNCTION=============================
 */
 void	print(t_stack *stack_a, t_stack *stack_b);
-void	color_print(t_stack *stack_a, t_stack *stack_b, char **argv, int i);
+void	special_print(t_stack *stack_a, t_stack *stack_b, char **argv, int i);

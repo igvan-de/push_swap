@@ -6,31 +6,36 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/18 17:58:10 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/19 20:48:04 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static int	valid_input(int argc, char **argv)
+static void	valid_input(char **argv, int *i, int *j)//NEED TO MAKE READABLE
 {
-	int		i;
+	int		k;
 
-	i = 1;
-	if (argc <= 1)
-		exit(0);
-	while (argv[i])
+	while (argv[*i])
 	{
-		if (ft_isnum(argv[i]) == 0 && (ft_strequ(argv[i], "-v") == -1
-			|| ft_strequ(argv[i], "-c") == -1 || ft_strequ(argv[i], "-i") == -1
-			|| ft_strequ(argv[i], "-ic") == -1))
+		if (ft_strequ(argv[*i], "-v") == 1 || ft_strequ(argv[*i], "-c") == 1
+			|| ft_strequ(argv[*i], "-t") == 1 || ft_strequ(argv[*i], "-o") == 1 
+			|| ft_strequ(argv[*i], "-i") == 1)
+			*j = *i;
+		if (ft_isnum(argv[*i]) == 1)
+			break ;
+		(*i)++;
+	}
+	k = *i;
+	while (argv[k])
+	{
+		if (ft_isnum(argv[k]) == 0)
 		{
 			ft_printf("ERROR\n");
 			exit(0);
 		}
-		i++;
+		k++;
 	}
-	return (0);
 }
 
 static void	line_compare(char *line, t_stack **stack_a, t_stack **stack_b)
@@ -61,29 +66,28 @@ static void	line_compare(char *line, t_stack **stack_a, t_stack **stack_b)
 		ft_printf("Please give a valid operation to execute\n");
 }
 
-static void	read_stdin(t_stack *stack_a, t_stack *stack_b, char **argv, int i)
+static void	read_stdin(t_stack *stack_a, t_stack *stack_b, char **argv, int j)
 {
 	int			count;
 	char		*line;
 
 	count = 1;
 	line = NULL;
-	*argv = argv[i];
+	*argv = argv[j];
 	while (get_next_line(0, &line) > 0)//NEED TO FIX GET_NEXT_LINE
 	{
 		line_compare(line, &stack_a, &stack_b);
-		if (ft_strequ(argv[i], "-v") == 1)
+		if (ft_strequ(argv[j], "-v") == 1)
 			print(stack_a, stack_b);
-		if (ft_strequ(argv[i], "-c") == 1)
-			color_print(stack_a, stack_b, argv, count);
-		if (ft_strequ(argv[i], "-i") == 1)
+		if (ft_strequ(argv[j], "-c") == 1)
+			special_print(stack_a, stack_b, argv, count);
+		if (ft_strequ(argv[j], "-t") == 1)
+			special_print(stack_a, stack_b, argv, count);
+		if (ft_strequ(argv[j], "-o") == 1)
+			ft_printf("%s\n", line);
+		if (ft_strequ(argv[j], "-i") == 1)
 		{
-			color_print(stack_a, stack_b, argv, count);
-			count++;
-		}
-		if (ft_strequ(argv[i], "-ic") == 1)
-		{
-			color_print(stack_a, stack_b, argv, count);
+			special_print(stack_a, stack_b, argv, count);
 			count++;
 		}
 		line = NULL;
@@ -102,13 +106,13 @@ static void	checker_sort(t_stack *stack)
 		{
 			if (prob->number > prob->next->number)
 			{
-				ft_printf("KO\n");
+				ft_printf(COLOR_BOLD_RED"KO\n"COLOR_RESET);
 				exit(0);
 			}
 		}
 		prob = prob->next;
 	}
-	ft_printf("OK\n");
+	ft_printf(COLOR_BOLD_GREEN"OK\n"COLOR_RESET);
 }
 
 int			main(int argc, char **argv)
@@ -117,25 +121,24 @@ int			main(int argc, char **argv)
 	t_stack		*stack_b;
 	t_stack		*new_stack_a;
 	int			i;
+	int			j;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	i = 1;
+	j = 0;
 	if (argc == 0)
 		return (-1);
-	valid_input(argc, argv);
+	valid_input(argv, &i, &j);
 	while (argv[i])
 	{
-		if (ft_strequ(argv[i], "-v") == 1 || ft_strequ(argv[i], "-c") == 1
-			|| ft_strequ(argv[i], "-i") == 1 || ft_strequ(argv[i], "-ic") == 1)
-			break ;
 		new_stack_a = ft_newnode(ft_atoi(argv[i]));
 		if (new_stack_a == NULL)
 			return (-1);
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	read_stdin(stack_a, stack_b, argv, i);
+	read_stdin(stack_a, stack_b, argv, j);
 	checker_sort(stack_a);
 	return (0);
 }

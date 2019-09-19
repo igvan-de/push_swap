@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/18 17:44:56 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/19 19:53:51 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int			main(int argc, char **argv)
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	if (i > 2)
-		algorithm(&stack_a, &stack_b, chunk, i - 1);
+	algorithm(&stack_a, &stack_b, chunk, i - 1);
 	return (0);
 }

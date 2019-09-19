@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/18 15:17:08 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/19 19:53:41 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,7 @@ static void		swap(t_stack **stack, t_chunk *chunk, int chunksize, t_value *value
 	reverse(stack);
 	while (chunksize > 0)
 	{
-		if (big_start == 0)
-			break ;
-		if (big_start <= big_end && (value->start < value->end || value->start == value->end))
+		if (big_start <= big_end && (value->start <= value->end))
 		{
 			while (big_start > 0)
 			{
