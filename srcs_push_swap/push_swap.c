@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/19 19:53:51 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/20 13:32:53 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	valid_input(int argc, char **argv)
 {
@@ -24,7 +24,7 @@ static int	valid_input(int argc, char **argv)
 		argv++;
 		if (ft_isnum(*argv) == 0)
 		{
-			ft_printf("ERROR\n");
+			ft_printf(COLOR_BOLD_RED"ERROR\n"COLOR_RESET);
 			exit(0);
 		}
 		i++;
@@ -50,7 +50,10 @@ static int	double_input(char **argv)
 			if (argv[j] == '\0')
 				break ;
 			if (ft_strcmp(current, argv[j]) == 0)
+			{
+				ft_printf(COLOR_BOLD_RED"Double input\n"COLOR_RESET);
 				exit(0);
+			}
 		}
 		i++;
 	}

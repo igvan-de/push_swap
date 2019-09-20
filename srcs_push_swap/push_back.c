@@ -6,13 +6,13 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/09 15:46:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/19 19:46:44 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/20 14:42:13 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static int      counter(t_stack *stack, int biggest)
+static int		counter(t_stack *stack, int biggest)
 {
 	int		counter;
 

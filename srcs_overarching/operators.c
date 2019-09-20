@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/06 14:13:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/19 15:49:20 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/20 14:43:25 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int		sa_sb(t_stack **stack)
 {
@@ -40,7 +40,7 @@ int		ra_rb(t_stack **stack)
 		return (0);
 	node2 = (*stack)->next;
 	ft_stackaddback(&node2, *stack);
-	(*stack)->next = NULL;	//To make sure that ->next doens't point to something else the NULL to make sure a infinite loop is bypassed
+	(*stack)->next = NULL;
 	*stack = node2;
 	return (0);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   print.c                                            :+:    :+:            */
+/*   print_push_swap.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 16:08:27 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/18 12:43:17 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/20 12:41:46 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	print(t_stack *stack_a, t_stack *stack_b)
 {

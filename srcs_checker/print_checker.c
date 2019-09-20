@@ -6,13 +6,45 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/19 14:34:14 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/20 14:19:38 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
-void		print(t_stack *stack_a, t_stack *stack_b)
+static void	print_stack_a(t_stack *stack)
+{
+	t_stack *tmp;
+
+	tmp = stack;
+	if (stack == NULL)
+		return ;
+	ft_printf("a = ");
+	while (tmp != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+}
+
+static void	print_stack_b(t_stack *stack)
+{
+	t_stack *tmp;
+
+	tmp = stack;
+	if (stack == NULL)
+		return ;
+	ft_printf("b = ");
+	while (tmp != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+}
+
+static void	print(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack *tmp;
 
@@ -36,23 +68,29 @@ void		print(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("\n");
 }
 
-void			special_print(t_stack *stack_a, t_stack *stack_b, char **argv, int count)
+void		special_print(t_stack *stacks[2], t_options *option, char *line, int count)
 {
-	if (ft_strequ(*argv, "-c") == 1)
+	if (option->o_argv == 1)
+		ft_printf("\n%s\n", line);
+	if (option->i_argv == 1)
 	{
-		ft_printf(COLOR_BOLD_YELLOW);
-		print(stack_a, stack_b);
+		ft_printf(COLOR_DARK_GRAY"====== STEP %d ======\n", count);
 		ft_printf(COLOR_RESET);
 	}
-	if (ft_strequ(*argv, "-i") == 1)
+	if (option->v_argv == 1)
 	{
-		ft_printf(COLOR_WHITE"==== STEP %d ====\n", count);
-		ft_printf(COLOR_RESET);
-		print(stack_a, stack_b);
+		if (option->c_argv == 1)
+		{
+			ft_printf(COLOR_WHITE);
+			print_stack_a(stacks[0]);
+			ft_printf(COLOR_RESET);
+			ft_printf(COLOR_BOLD_BLUE);
+			print_stack_b(stacks[1]);
+			ft_printf(COLOR_RESET);
+		}
+		else
+			print(stacks[0], stacks[1]);
 	}
-	if (ft_strequ(*argv, "-t") == 1)
-	{
-		print(stack_a, stack_b);
+	if (option->t_argv == 1)
 		sleep(1);
-	}
 }

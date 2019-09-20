@@ -6,7 +6,7 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/09/18 14:17:11 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/09/20 12:50:50 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,14 @@ COLOR_DEFAULT = $(shell printf "\e[39m")
 
 CHECKER = checker
 PUSH_SWAP = push_swap
-SRCS_CHECKER = checker.c operators.c operations_double.c stack.c print_checker.c
-SRCS_PUSH_SWAP = push_swap.c operators.c operations_double.c stack.c delnode.c \
-				 chunk.c algorithm.c push_back.c print_push_swap.c
+SRCS_CHECKER = ./srcs_checker/checker.c ./srcs_checker/print_checker.c \
+				./srcs_checker/checker_input.c ./srcs_overarching/operators.c \
+				./srcs_overarching/operations_double.c ./srcs_overarching/stack.c 
+SRCS_PUSH_SWAP = ./srcs_push_swap/push_swap.c ./srcs_push_swap/delnode.c \
+				 ./srcs_push_swap/chunk.c ./srcs_push_swap/algorithm.c \
+				 ./srcs_push_swap/push_back.c ./srcs_push_swap/print_push_swap.c \
+				  ./srcs_overarching/operators.c ./srcs_overarching/operations_double.c \
+				  ./srcs_overarching/stack.c 
 OBJ_PUSH_SWAP = $(SRCS_PUSH_SWAP:%.c=%.o)
 OBJ_CHECKER = $(SRCS_CHECKER:%.c=%.o)
 FLAGS = -Wall -Werror -Wextra

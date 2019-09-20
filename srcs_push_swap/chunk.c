@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 14:31:01 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/17 17:39:27 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/20 14:39:21 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	find_smallest(t_stack *stack, t_chunk *chunk)
 {
@@ -23,7 +23,7 @@ static void	find_smallest(t_stack *stack, t_chunk *chunk)
 	}
 }
 
-void	find_highest(t_stack *stack, t_chunk *chunk)
+void		find_highest(t_stack *stack, t_chunk *chunk)
 {
 	chunk->highest_value = stack->number;
 	while (stack != NULL)
@@ -58,7 +58,7 @@ int			size_chunk(int i)
 
 int			calculate_chunk_amount(int chunksize, int i)
 {
-	int 	chunk_amount;
+	int		chunk_amount;
 
 	chunk_amount = 0;
 	if (i % chunksize == 0)
@@ -80,14 +80,14 @@ void		chunk_value(t_stack **stack, t_chunk *chunk, int chunksize)
 	find_highest(*stack, chunk);
 	previous = chunk->lowest_value;
 	chunk->max_chunk_value = probe->number;
-//doenst work if first number is smallest!
 	while (i < chunksize)
 	{
 		probe = *stack;
 		chunk->max_chunk_value = chunk->highest_value;
 		while (probe != NULL)
 		{
-			if (probe->number < chunk->max_chunk_value && probe->number > previous)
+			if (probe->number < chunk->max_chunk_value
+				&& probe->number > previous)
 				chunk->max_chunk_value = probe->number;
 			probe = probe->next;
 		}
