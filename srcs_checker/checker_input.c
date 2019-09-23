@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/20 12:02:21 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/20 14:06:00 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 19:34:05 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		option_input(char **argv, int i, t_options *option)
 			option->o_argv = 1;
 		else if (ft_strequ(argv[i], "-i") == 1)
 			option->i_argv = 1;
+		else if (ft_strequ(argv[i], "-r") == 1)
+			option->r_argv = 1;
 		else if (ft_isnum(argv[i]) == 1)
 			break ;
 		else

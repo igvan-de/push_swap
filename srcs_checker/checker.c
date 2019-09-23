@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/20 14:28:53 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 19:42:21 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,30 @@ static void	line_compare(char *line, t_stack **stack_a, t_stack **stack_b)
 		ft_printf("Please give a valid operation to execute\n");
 }
 
+static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
+{
+	t_stack	*prob;
+
+	prob = stack_a;
+	while (prob)
+	{
+		if (prob->next != NULL)
+		{
+			if (prob->number > prob->next->number)
+			{
+				if (option->r_argv == 1)
+					print(stack_a, stack_b);
+				ft_printf(COLOR_BOLD_RED"KO\n"COLOR_RESET);
+				exit(0);
+			}
+		}
+		prob = prob->next;
+	}
+	if (option->r_argv == 1)
+		print(stack_a, stack_b);
+	ft_printf(COLOR_BOLD_GREEN"OK\n"COLOR_RESET);
+}
+
 static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
 {
 	char		*line;
@@ -55,26 +79,7 @@ static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
 		free(line);
 		count++;
 	}
-}
-
-static void	checker_sort(t_stack *stack)
-{
-	t_stack	*prob;
-
-	prob = stack;
-	while (prob)
-	{
-		if (prob->next != NULL)
-		{
-			if (prob->number > prob->next->number)
-			{
-				ft_printf(COLOR_BOLD_RED"KO\n"COLOR_RESET);
-				exit(0);
-			}
-		}
-		prob = prob->next;
-	}
-	ft_printf(COLOR_BOLD_GREEN"OK\n"COLOR_RESET);
+	checker_sort(stack_a, stack_b, option);
 }
 
 int			main(int argc, char **argv)
@@ -89,7 +94,7 @@ int			main(int argc, char **argv)
 	stack_b = NULL;
 	option = (t_options*)ft_memalloc(sizeof(t_options));
 	i = 1;
-	if (argc == 0)
+	if (argc == 1)
 		return (-1);
 	i = option_input(argv, i, option);
 	double_input(argv);
@@ -103,6 +108,5 @@ int			main(int argc, char **argv)
 		i++;
 	}
 	read_stdin(stack_a, stack_b, option);
-	checker_sort(stack_a);
 	return (0);
 }

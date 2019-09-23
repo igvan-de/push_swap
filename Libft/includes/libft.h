@@ -6,7 +6,7 @@
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/17 10:18:46 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/07/17 16:40:08 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 15:31:54 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstaddend(t_list **alst, t_list *new);
 void				ft_swap(int *a, int *b);
-void    			ft_strarrdel(char ***arr);
+void				ft_strarrdel(char ***arr);
 
 char				*ft_strdup(const char *src);
 char				*ft_strcpy(char *dst, const char *src);
@@ -74,7 +74,8 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
 char				*itoa_long(long long nb, long long base);
-char				*itoa_un_long(unsigned long long nb, unsigned long long base);
+char				*itoa_un_long(unsigned long long nb,
+					unsigned long long base);
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);

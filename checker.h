@@ -6,16 +6,19 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 13:01:02 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/20 14:45:29 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 19:41:30 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Libft/includes/libft.h"
-#include "./Libft/includes/get_next_line.h"
-#include "./Printf/ft_printf.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-#include <stdlib.h>
-#include <fcntl.h>
+# include "./Libft/includes/libft.h"
+# include "./Libft/includes/get_next_line.h"
+# include "./Printf/ft_printf.h"
+
+# include <stdlib.h>
+# include <fcntl.h>
 
 typedef struct			s_stack
 {
@@ -30,6 +33,7 @@ typedef struct			s_options
 	int					t_argv;
 	int					o_argv;
 	int					i_argv;
+	int					r_argv;
 }						t_options;
 
 /*
@@ -65,4 +69,7 @@ void					ft_stackaddback(t_stack **stack, t_stack *new);
 **===============================PRINTING FUNCTION=============================
 */
 void					special_print(t_stack *stacks[2], t_options *option,
-										char *line, int count);
+						char *line, int count);
+void					print(t_stack *stack_a, t_stack *stack_b);
+
+#endif

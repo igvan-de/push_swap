@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/09 15:46:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/20 14:42:13 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 19:15:28 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,7 @@ void			push_back(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk)
 		reverse(stack_b);
 		end = counter(*stack_b, chunk->highest_value);
 		reverse(stack_b);
-		if (start <= end)
-		{
-			while (start > 0)
-			{
-				ra_rb(stack_b);
-				ft_printf("rb\n");
-				start--;
-			}
-		}
-		else if (end < start)
-		{
-			while (end >= 0)
-			{
-				rra_rrb(stack_b);
-				ft_printf("rrb\n");
-				end--;
-			}
-		}
+		conditions_push_back(stack_b, start, end);
 		pa_pb(stack_b, stack_a);
 		ft_printf("pa\n");
 		i--;

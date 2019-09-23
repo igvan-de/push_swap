@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/13 18:09:56 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/20 13:54:39 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 15:31:20 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,15 @@ static t_list		*list_check(const int fd, t_list **lst)
 	return (new);
 }
 
+static void			create_node(char *buff, char *tmp, t_list *node,
+					ssize_t ret)
+{
+	buff[ret] = '\0';
+	tmp = node->content;
+	node->content = ft_strjoin(node->content, buff);
+	free(tmp);
+}
+
 int					get_next_line(const int fd, char **line)
 {
 	ssize_t			ret;
@@ -68,6 +77,7 @@ int					get_next_line(const int fd, char **line)
 	t_list			*node;
 
 	ret = 1;
+	tmp = NULL;
 	if (fd < 0)
 		return (-1);
 	buff = (char*)ft_memalloc(sizeof(char) * (BUFF_SIZE + 1));
@@ -79,10 +89,7 @@ int					get_next_line(const int fd, char **line)
 		ret = read(fd, buff, BUFF_SIZE);
 		if (ret == -1)
 			return (-1);
-		buff[ret] = '\0';
-		tmp = node->content;
-		node->content = ft_strjoin(node->content, buff);
-		free(tmp);
+		create_node(buff, tmp, node, ret);
 		if (!node->content)
 			return (-1);
 	}

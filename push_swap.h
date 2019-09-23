@@ -6,13 +6,16 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/19 16:42:44 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 19:14:46 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Libft/includes/libft.h"
-#include "./Printf/ft_printf.h"
-#include <stdlib.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "./Libft/includes/libft.h"
+# include "./Printf/ft_printf.h"
+# include <stdlib.h>
 
 typedef struct			s_stack
 {
@@ -74,7 +77,18 @@ void					algorithm(t_stack **stack_a, t_stack **stack_b,
 void					push_back(t_stack **stack_a, t_stack **stack_b,
 						t_chunk *chunk);
 
+
+/*
+**=============================CHECK CONDITION FUNCTIONS========================
+*/
+void					conditions_push_back(t_stack **stack_b, int start, int end);
+void					conditions_stack_b(t_stack **stack_b);
+void					conditions_start_end(t_stack **stack, int big_start,
+						int big_end, t_value *value);
+
 /*
 **===============================PRINTING FUNCTION=============================
 */
 void					print(t_stack *stack_a, t_stack *stack_b);
+
+#endif

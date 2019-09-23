@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/29 16:32:59 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/05/16 13:41:16 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/23 14:06:51 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,30 +54,29 @@ static int		ft_wordlength(char const *s, char c, unsigned int k)
 
 static int		ft_arrsplit(char const *s, char c, char **str)
 {
-	int				i;
-	int				k;
-	int				b;
+	int				i[3];
 
-	k = 0;
-	b = 0;
-	while (b < (ft_wordcount(s, c)))
+	i[1] = 0;
+	i[2] = 0;
+	while (i[2] < (ft_wordcount(s, c)))
 	{
-		while (s[k] == c && s[k] != '\0')
-			k++;
-		str[b] = (char*)ft_memalloc(sizeof(char) * (ft_wordlength(s, c, k) + 1));
-		if (str[b] == NULL)
+		while (s[i[1]] == c && s[i[1]] != '\0')
+			i[1]++;
+		str[i[2]] = (char*)ft_memalloc(sizeof(char) *
+			(ft_wordlength(s, c, i[1]) + 1));
+		if (str[i[2]] == NULL)
 			return (0);
-		i = 0;
-		while (s[k] != c && s[k])
+		i[0] = 0;
+		while (s[i[1]] != c && s[i[1]])
 		{
-			str[b][i] = s[k];
-			i++;
-			k++;
+			str[i[2]][i[0]] = s[i[1]];
+			i[0]++;
+			i[1]++;
 		}
-		str[b][i] = '\0';
-		b++;
+		str[i[2]][i[0]] = '\0';
+		i[2]++;
 	}
-	str[b] = NULL;
+	str[i[2]] = NULL;
 	return (1);
 }
 
