@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 13:01:02 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/23 19:41:30 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/24 09:38:07 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct			s_options
 	int					o_argv;
 	int					i_argv;
 	int					r_argv;
+	int					wrong_input;
 }						t_options;
 
 /*

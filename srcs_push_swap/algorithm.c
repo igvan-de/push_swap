@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/23 19:15:33 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/24 12:28:40 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,28 +70,6 @@ static void	swap(t_stack **stack, t_chunk *chunk, t_value *value)
 				chunk->max_chunk_value, value);
 	reverse(stack);
 	conditions_start_end(stack, big_start, big_end, value);
-	// while (chunksize > 0) //CHECK WHY CHUNKSIZE IS IMPORTANT HERE!!!!!!
-	// {
-		// if (big_start <= big_end && (value->start <= value->end))
-		// {
-		// 	while (big_start > 0)
-		// 	{
-		// 		ra_rb(stack);
-		// 		ft_printf("ra\n");
-		// 		big_start--;
-		// 	}
-		// }
-		// else if (big_start > big_end || value->start > value->end)
-		// {	
-		// 	while (big_end >= 0)
-		// 	{
-		// 		rra_rrb(stack);
-		// 		ft_printf("rra\n");
-		// 		big_end--;
-		// 	}
-		// }
-		// chunksize--;
-	// }
 }
 
 void		algorithm(t_stack **stack_a, t_stack **stack_b,
@@ -107,12 +85,15 @@ void		algorithm(t_stack **stack_a, t_stack **stack_b,
 	while (chunk_amount > 0)
 	{
 		i = 0;
-		chunk_value(stack_a, chunk, chunksize);//statement for empty list!
+		chunk_value(stack_a, chunk, chunksize);//EMPTY LIST CHECK
 		while (i < chunksize)
 		{
 			swap(stack_a, chunk, value);
-			pa_pb(stack_a, stack_b);
-			ft_printf("pb\n");
+			if ((*stack_a)->next != NULL)
+			{
+				pa_pb(stack_a, stack_b);
+				ft_printf("pb\n");
+			}
 			conditions_stack_b(stack_b);
 			i++;
 		}
@@ -120,7 +101,3 @@ void		algorithm(t_stack **stack_a, t_stack **stack_b,
 	}
 	push_back(stack_a, stack_b, chunk);
 }
-
-	//Need to initialize all ints of structs on 0 value!!!
-	// value->start = 0;
-	// value->end = 0;
