@@ -6,7 +6,7 @@
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/28 10:27:18 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/05/09 17:55:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 13:22:05 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
 	s3 = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
 	if (s3 == NULL)
 		return (NULL);

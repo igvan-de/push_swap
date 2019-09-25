@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/24 12:36:55 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 14:26:38 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
 
 	count = 1;
 	line = NULL;
-	while (get_next_line(0, &line) > 0)//NEED TO FIX GET_NEXT_LINE
+	while (get_next_line(0, &line) > 0)
 	{
 		line_compare(line, &stack_a, &stack_b, option);
 		special_print((t_stack*[2]){stack_a, stack_b}, option, line, count);

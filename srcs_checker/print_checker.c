@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/24 09:40:32 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 14:20:05 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		special_print(t_stack *stacks[2], t_options *option,
 			char *line, int count)
 {
 	if (option->o_argv == 1)
-		ft_printf("\n%s\n", line);
+		ft_printf("%s\n", line);
 	if (option->i_argv == 1 && option->wrong_input == 0)
 	{
 		ft_printf(COLOR_DARK_GRAY"====== STEP %d ======\n", count);

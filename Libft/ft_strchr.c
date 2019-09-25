@@ -6,7 +6,7 @@
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/22 14:46:55 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/05/09 17:55:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 13:28:24 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	size_t i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c)
-			return ((char*)s);
-		s++;
+		if (s[i] == c)
+			return ((char*)&s[i]);
+		i++;
 	}
-	if (*s == c)
-		return ((char*)s);
+	if (s[i] == c)
+		return ((char*)&s[i]);
 	return (NULL);
 }

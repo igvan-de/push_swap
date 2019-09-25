@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/24 12:28:40 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 14:31:07 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,24 @@ static int	shortest_steps_end(t_stack *stack, int start,
 	return (counter);
 }
 
-static void	swap(t_stack **stack, t_chunk *chunk, t_value *value)
+static void	swap(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk,
+			t_value *value)
 {
 	int			big_start;
 	int			big_end;
 
-	big_start = shortest_steps_start(*stack, chunk->lowest_value,
+	big_start = shortest_steps_start((*stack_a), chunk->lowest_value,
 				chunk->max_chunk_value, value);
-	reverse(stack);
-	big_end = shortest_steps_end(*stack, chunk->lowest_value,
+	reverse(stack_a);
+	big_end = shortest_steps_end(*stack_a, chunk->lowest_value,
 				chunk->max_chunk_value, value);
-	reverse(stack);
-	conditions_start_end(stack, big_start, big_end, value);
+	reverse(stack_a);
+	conditions_start_end(stack_a, big_start, big_end, value);
+	if ((*stack_a)->next != NULL)
+	{
+		pa_pb(stack_a, stack_b);
+		ft_printf("pb\n");
+	}
 }
 
 void		algorithm(t_stack **stack_a, t_stack **stack_b,
@@ -85,19 +91,16 @@ void		algorithm(t_stack **stack_a, t_stack **stack_b,
 	while (chunk_amount > 0)
 	{
 		i = 0;
-		chunk_value(stack_a, chunk, chunksize);//EMPTY LIST CHECK
+		if (stack_a != NULL)
+			chunk_value(stack_a, chunk, chunksize);
 		while (i < chunksize)
 		{
-			swap(stack_a, chunk, value);
-			if ((*stack_a)->next != NULL)
-			{
-				pa_pb(stack_a, stack_b);
-				ft_printf("pb\n");
-			}
+			swap(stack_a, stack_b, chunk, value);
 			conditions_stack_b(stack_b);
 			i++;
 		}
 		chunk_amount--;
 	}
 	push_back(stack_a, stack_b, chunk);
+	free(value);
 }
