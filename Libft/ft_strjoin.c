@@ -6,11 +6,11 @@
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/28 10:27:18 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/25 13:22:05 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 16:00:16 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

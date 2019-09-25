@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/20 12:02:21 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/23 19:34:05 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 15:40:16 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "checker.h"
 
 int		option_input(char **argv, int i, t_options *option)
 {

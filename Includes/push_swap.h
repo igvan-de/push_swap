@@ -6,15 +6,16 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/24 09:12:13 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 16:02:24 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./Libft/includes/libft.h"
-# include "./Printf/ft_printf.h"
+# include "libft.h"
+
+# include "ft_printf.h"
 # include <stdlib.h>
 
 typedef struct			s_stack

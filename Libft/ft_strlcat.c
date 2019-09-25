@@ -6,11 +6,11 @@
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/21 13:38:32 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/05/09 17:55:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 16:00:16 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

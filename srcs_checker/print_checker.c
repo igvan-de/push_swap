@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/25 14:20:05 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 15:44:19 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "checker.h"
 
 static void	print_stack_a(t_stack *stack)
 {

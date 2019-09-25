@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 14:31:01 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/24 09:28:50 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 15:45:05 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	find_smallest(t_stack *stack, t_chunk *chunk)
 {

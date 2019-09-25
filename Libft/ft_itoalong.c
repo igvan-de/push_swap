@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/05/09 17:49:12 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/05/16 13:08:58 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 16:00:16 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 static int		length(int nb, int base)
 {

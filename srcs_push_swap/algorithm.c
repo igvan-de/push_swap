@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/25 14:31:07 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 15:44:54 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static int	shortest_steps_start(t_stack *stack, int start,
 			int end, t_value *value)

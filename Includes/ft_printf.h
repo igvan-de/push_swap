@@ -6,16 +6,17 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/25 14:15:09 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/18 13:54:17 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 16:02:16 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "libft.h"
+
 # include <unistd.h>
 # include <stdarg.h>
-# include ".././Libft/includes/libft.h"
 
 # define H_FLAGS (1 << 0)
 # define L_FLAGS (1 << 1)

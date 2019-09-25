@@ -6,16 +6,16 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 13:01:02 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/24 09:38:07 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 16:02:06 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include "./Libft/includes/libft.h"
-# include "./Libft/includes/get_next_line.h"
-# include "./Printf/ft_printf.h"
+# include "libft.h"
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 # include <stdlib.h>
 # include <fcntl.h>

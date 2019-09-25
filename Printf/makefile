@@ -6,12 +6,13 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/04/08 15:22:39 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/05/16 17:04:59 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/09/25 15:59:00 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a  
-FLAGS = -Wall -Werror -Wextra 
+NAME = libftprintf.a
+INCLUDE = -I .././Includes
+FLAGS = -Wall -Werror -Wextra $(INCLUDE)
 SRC = putnbr_base.c putfl_base.c divide.c divide_fl.c print.c print_char.c \
 		length.c itoa_float.c padding_nul.c padding.c flags.c get.c handler.c \
 		ft_printf.c print_hex.c

@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/23 16:21:06 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/24 09:13:13 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 15:44:58 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	conditions_start_end(t_stack **stack, int big_start,
 		int big_end, t_value *value)

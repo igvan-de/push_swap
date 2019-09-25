@@ -6,7 +6,7 @@
 #    By: igvan-de <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/17 12:10:38 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/09/11 13:54:12 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/09/25 15:58:51 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,8 @@ SRCS =	ft_atoi.c \
 		get_next_line.c 
 		
 OBJ := $(SRCS:%.c=%.o)
-FLAGS = -Wall -Werror -Wextra
+INCLUDE = -I .././Includes
+FLAGS = -Wall -Werror -Wextra $(INCLUDE)
 NORM = norminette $(SRCS) $(HEADER) | grep -e "Error" -e "Warning" -B 1
 
 all: $(NAME)

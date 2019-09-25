@@ -6,11 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 13:02:17 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/20 14:42:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/25 15:44:22 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void		ss(t_stack **stack_a, t_stack **stack_b)
 {
