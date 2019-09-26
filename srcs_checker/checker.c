@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/25 15:44:15 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/26 15:26:37 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 static void	wrong_input(t_options *option)
 {
-	option->wrong_input = 1;
+	option->flags |= FLAG_WRONG_INPUT;
 	ft_printf("Please give a valid operation to execute\n");
 }
 
-static void	line_compare(char *line, t_stack **stack_a, t_stack **stack_b,
+static void	stdin_compare(char *line, t_stack **stack_a, t_stack **stack_b,
 			t_options *option)
 {
-	option->wrong_input = 0;
 	if (ft_strcmp(line, "sa") == 0)
 		sa_sb(stack_a);
 	else if (ft_strcmp(line, "sb") == 0)
@@ -59,7 +58,7 @@ static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
 		{
 			if (prob->number > prob->next->number)
 			{
-				if (option->r_argv == 1)
+				if (option->flags & FLAG_R)
 					print(stack_a, stack_b);
 				ft_printf(COLOR_BOLD_RED"KO\n"COLOR_RESET);
 				exit(0);
@@ -67,7 +66,7 @@ static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
 		}
 		prob = prob->next;
 	}
-	if (option->r_argv == 1)
+	if (option->flags & FLAG_R)
 		print(stack_a, stack_b);
 	ft_printf(COLOR_BOLD_GREEN"OK\n"COLOR_RESET);
 }
@@ -81,12 +80,11 @@ static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
 	line = NULL;
 	while (get_next_line(0, &line) > 0)
 	{
-		line_compare(line, &stack_a, &stack_b, option);
-		special_print((t_stack*[2]){stack_a, stack_b}, option, line, count);
+		stdin_compare(line, &stack_a, &stack_b, option);
+		option_print((t_stack*[2]){stack_a, stack_b}, option, line, count);
 		free(line);
 		line = NULL;
-		if (option->wrong_input == 0)
-			count++;
+		count++;
 	}
 	checker_sort(stack_a, stack_b, option);
 }

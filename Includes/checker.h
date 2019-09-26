@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 13:01:02 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/25 16:02:06 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/26 15:26:59 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+# define FLAG_V				(1 << 0)
+# define FLAG_C				(1 << 1)
+# define FLAG_T				(1 << 2)
+# define FLAG_O				(1 << 3)
+# define FLAG_I				(1 << 4)
+# define FLAG_R				(1 << 5)
+# define FLAG_WRONG_INPUT	(1 << 6)
+# define FLAG_HELP			(1 << 7)
+
 typedef struct			s_stack
 {
 	int					number;
@@ -28,13 +37,7 @@ typedef struct			s_stack
 
 typedef struct			s_options
 {
-	int					v_argv;
-	int					c_argv;
-	int					t_argv;
-	int					o_argv;
-	int					i_argv;
-	int					r_argv;
-	int					wrong_input;
+	char				flags;
 }						t_options;
 
 /*
@@ -69,7 +72,7 @@ void					ft_stackaddback(t_stack **stack, t_stack *new);
 /*
 **===============================PRINTING FUNCTION=============================
 */
-void					special_print(t_stack *stacks[2], t_options *option,
+void					option_print(t_stack *stacks[2], t_options *option,
 						char *line, int count);
 void					print(t_stack *stack_a, t_stack *stack_b);
 
