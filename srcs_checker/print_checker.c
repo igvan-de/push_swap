@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/26 15:29:41 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/26 17:16:18 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,14 @@ void		print(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("\n");
 }
 
-void		option_print(t_stack *stacks[2], t_options *option,
-			char *line, int count)
+void		option_print(t_stack *stack_a, t_stack *stack_b, t_options *option,
+			char *line)
 {
 	if (option->flags & FLAG_HELP)
 		print_help();
-	if (option->flags & FLAG_I)
+	if (option->flags & FLAG_I && !(option->flags & FLAG_WRONG_INPUT))
 	{
-		ft_printf(COLOR_DARK_GRAY"====== STEP %d ======\n", count);
+		ft_printf(COLOR_DARK_GRAY"====== STEP %d ======\n", option->count);
 		ft_printf(COLOR_RESET);
 	}
 	if (option->flags & FLAG_O)
@@ -98,14 +98,14 @@ void		option_print(t_stack *stacks[2], t_options *option,
 		if (option->flags & FLAG_C)
 		{
 			ft_printf(COLOR_WHITE);
-			print_stack_a(stacks[0]);
+			print_stack_a(stack_a);
 			ft_printf(COLOR_RESET);
 			ft_printf(COLOR_BOLD_BLUE);
-			print_stack_b(stacks[1]);
+			print_stack_b(stack_b);
 			ft_printf(COLOR_RESET);
 		}
 		else
-			print(stacks[0], stacks[1]);
+			print(stack_a, stack_b);
 	}
 	if (option->flags & FLAG_T)
 		sleep(1);

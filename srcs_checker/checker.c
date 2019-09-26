@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/26 15:26:37 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/26 17:15:46 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,17 @@ static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
 static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
 {
 	char		*line;
-	int			count;
 
-	count = 1;
 	line = NULL;
 	while (get_next_line(0, &line) > 0)
 	{
+		option->flags &= ~FLAG_WRONG_INPUT;
 		stdin_compare(line, &stack_a, &stack_b, option);
-		option_print((t_stack*[2]){stack_a, stack_b}, option, line, count);
+		option_print(stack_a, stack_b, option, line);
 		free(line);
 		line = NULL;
-		count++;
+		if (!(option->flags & FLAG_WRONG_INPUT))
+			option->count++;
 	}
 	checker_sort(stack_a, stack_b, option);
 }

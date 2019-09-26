@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/20 12:02:21 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/26 15:26:01 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/26 17:16:01 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static void	reset_option(t_options *option)
 {
-	option->flags &= FLAG_V;
-	option->flags &= FLAG_C;
-	option->flags &= FLAG_T;
-	option->flags &= FLAG_O;
-	option->flags &= FLAG_I;
-	option->flags &= FLAG_R;
+	option->flags &= ~FLAG_V;
+	option->flags &= ~FLAG_C;
+	option->flags &= ~FLAG_T;
+	option->flags &= ~FLAG_O;
+	option->flags &= ~FLAG_I;
+	option->flags &= ~FLAG_R;
 }
 
 static int	check_option(char **argv, int i, t_options *option)
@@ -38,8 +38,8 @@ static int	check_option(char **argv, int i, t_options *option)
 		option->flags |= FLAG_R;
 	else if (ft_strequ(argv[i], "--help"))
 	{
-		reset_option(option);
 		option->flags |= FLAG_HELP;
+		reset_option(option);
 	}
 	else
 		return (-1);

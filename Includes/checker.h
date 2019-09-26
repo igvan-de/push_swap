@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 13:01:02 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/26 15:26:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/26 17:16:41 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct			s_stack
 typedef struct			s_options
 {
 	char				flags;
+	int					count;
 }						t_options;
 
 /*
@@ -72,8 +73,8 @@ void					ft_stackaddback(t_stack **stack, t_stack *new);
 /*
 **===============================PRINTING FUNCTION=============================
 */
-void					option_print(t_stack *stacks[2], t_options *option,
-						char *line, int count);
+void					option_print(t_stack *stack_a, t_stack *stack_b,
+						t_options *option, char *line);
 void					print(t_stack *stack_a, t_stack *stack_b);
 
 #endif
