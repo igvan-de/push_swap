@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/27 13:26:47 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/27 14:00:39 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,17 @@ static void	stdin_compare(char *line, t_stack **stack_a, t_stack **stack_b,
 		wrong_input(option);
 }
 
-static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
+static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option,
+			int argc)
 {
 	t_stack		*prob;
 
 	prob = stack_a;
+	if (argc == 2)
+	{
+		ft_printf(COLOR_WHITE"PLEASE GIVE MORE DIGITS AS INPUT\n"COLOR_RESET);
+		return ;
+	}
 	while (prob)
 	{
 		if (prob->next != NULL)
@@ -71,13 +77,14 @@ static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
 	ft_printf(COLOR_BOLD_GREEN"OK\n"COLOR_RESET);
 }
 
-static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
+static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option,
+			int argc)
 {
 	char		*line;
 
 	line = NULL;
 	option->count = 1;
-	while (get_next_line(0, &line) > 0)
+	while (argc > 2 && get_next_line(0, &line) > 0)
 	{
 		option->flags &= ~FLAG_WRONG_INPUT;
 		stdin_compare(line, &stack_a, &stack_b, option);
@@ -87,7 +94,7 @@ static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
 		if (!(option->flags & FLAG_WRONG_INPUT))
 			option->count++;
 	}
-	checker_sort(stack_a, stack_b, option);
+	checker_sort(stack_a, stack_b, option, argc);
 }
 
 int			main(int argc, char **argv)
@@ -115,6 +122,6 @@ int			main(int argc, char **argv)
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	read_stdin(stack_a, stack_b, option);
+	read_stdin(stack_a, stack_b, option, argc);
 	return (0);
 }

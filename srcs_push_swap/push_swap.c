@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/27 13:42:49 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/27 14:00:14 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	valid_input(int argc, char **argv)
 		exit(0);
 	if (argc == 2 && ft_isnum(argv[i]) == 1)
 	{
-		ft_printf("%s\n", argv[i]);
+		ft_printf(COLOR_WHITE"PLEASE GIVE MORE DIGITS AS INPUT\n"COLOR_RESET);
 		exit(0);
 	}
 	while (i < argc)
