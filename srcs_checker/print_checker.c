@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/26 17:16:18 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/27 13:26:33 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ static void	print_stack_b(t_stack *stack)
 static int	print_help(void)
 {
 	ft_printf(COLOR_WHITE);
-	ft_printf("-v = display stack status\n");
-	ft_printf("-c = display stack in colors\n");
-	ft_printf("-t = display stack with in a slower pace\n");
+	ft_printf("-v = display stack(s) status\n");
+	ft_printf("-c = display stack(s) in colors\n");
+	ft_printf("-t = display stack(s) with in a slower pace\n");
 	ft_printf("-o = display operations used to swap stack(s)\n");
 	ft_printf("-i = display amount of steps\n");
 	ft_printf("-r = displays end result of all operations\n");

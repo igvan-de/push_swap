@@ -6,21 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/20 12:02:21 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/26 17:16:01 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/27 13:26:58 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-static void	reset_option(t_options *option)
-{
-	option->flags &= ~FLAG_V;
-	option->flags &= ~FLAG_C;
-	option->flags &= ~FLAG_T;
-	option->flags &= ~FLAG_O;
-	option->flags &= ~FLAG_I;
-	option->flags &= ~FLAG_R;
-}
 
 static int	check_option(char **argv, int i, t_options *option)
 {
@@ -37,10 +27,7 @@ static int	check_option(char **argv, int i, t_options *option)
 	else if (ft_strequ(argv[i], "-r") == 1)
 		option->flags |= FLAG_R;
 	else if (ft_strequ(argv[i], "--help"))
-	{
 		option->flags |= FLAG_HELP;
-		reset_option(option);
-	}
 	else
 		return (-1);
 	return (0);
