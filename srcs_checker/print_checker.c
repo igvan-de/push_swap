@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/27 13:26:33 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/29 16:22:31 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ static void	print_stack_b(t_stack *stack)
 	ft_printf("\n");
 }
 
-static int	print_help(void)
+static void	print_help(void)
 {
 	ft_printf(COLOR_WHITE);
 	ft_printf("-v = display stack(s) status\n");
 	ft_printf("-c = display stack(s) in colors\n");
-	ft_printf("-t = display stack(s) with in a slower pace\n");
+	ft_printf("-t = display stack(s) in slower pace\n");
 	ft_printf("-o = display operations used to swap stack(s)\n");
 	ft_printf("-i = display amount of steps\n");
 	ft_printf("-r = displays end result of all operations\n");
@@ -62,6 +62,8 @@ void		print(t_stack *stack_a, t_stack *stack_b)
 	t_stack *tmp;
 
 	tmp = stack_a;
+	if (stack_a == NULL)
+		return ;
 	ft_printf("a = ");
 	while (tmp != NULL)
 	{
@@ -91,7 +93,7 @@ void		option_print(t_stack *stack_a, t_stack *stack_b, t_options *option,
 		ft_printf(COLOR_DARK_GRAY"====== STEP %d ======\n", option->count);
 		ft_printf(COLOR_RESET);
 	}
-	if (option->flags & FLAG_O)
+	if (option->flags & FLAG_O && line != NULL)
 		ft_printf("%s\n", line);
 	if (option->flags & FLAG_V)
 	{

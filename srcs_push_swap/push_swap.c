@@ -6,13 +6,13 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/27 14:00:14 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/09/29 15:56:31 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	valid_input(int argc, char **argv)
+static void	valid_input(int argc, char **argv)
 {
 	int		i;
 
@@ -20,10 +20,7 @@ static int	valid_input(int argc, char **argv)
 	if (argc <= 1)
 		exit(0);
 	if (argc == 2 && ft_isnum(argv[i]) == 1)
-	{
-		ft_printf(COLOR_WHITE"PLEASE GIVE MORE DIGITS AS INPUT\n"COLOR_RESET);
 		exit(0);
-	}
 	while (i < argc)
 	{
 		argv++;
@@ -34,10 +31,9 @@ static int	valid_input(int argc, char **argv)
 		}
 		i++;
 	}
-	return (0);
 }
 
-static int	double_input(char **argv)
+static void	double_input(char **argv)
 {
 	char	*current;
 	int		i;
@@ -62,7 +58,24 @@ static int	double_input(char **argv)
 		}
 		i++;
 	}
-	return (0);
+}
+
+static void	is_sorted(char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) < ft_atoi(argv[i + 1]))
+		{
+			i++;
+			if (argv[i + 1] == '\0')
+				exit(0);
+		}
+		else
+			break ;
+	}
 }
 
 int			main(int argc, char **argv)
@@ -76,6 +89,7 @@ int			main(int argc, char **argv)
 	i = 1;
 	valid_input(argc, argv);
 	double_input(argv);
+	is_sorted(argv);
 	stack_a = NULL;
 	stack_b = NULL;
 	chunk = (t_chunk*)ft_memalloc(sizeof(t_chunk));
@@ -91,4 +105,5 @@ int			main(int argc, char **argv)
 	}
 	algorithm(&stack_a, &stack_b, chunk, i - 1);
 	exit(0);
+	return (0);
 }
