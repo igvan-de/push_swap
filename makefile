@@ -6,7 +6,7 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/09/25 15:51:14 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/09/30 11:33:10 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,6 @@ $(CHECKER): $(OBJ_CHECKER)
 	@echo "$(PRINT_PLUS) Compiling completed"
 
 $(PUSH_SWAP): $(OBJ_PUSH_SWAP)
-	@#removed make -C Libft because of "Nothing to to for make[1]" error 
-	@#removed make -C Printf because of "Nothing to to for make[1]" error 
 	@gcc $(FLAGS) $(OBJ_PUSH_SWAP) $(LIB) -o push_swap
 	@echo "$(PRINT_PLUS) Compiling completed"
 
