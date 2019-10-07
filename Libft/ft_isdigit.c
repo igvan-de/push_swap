@@ -5,14 +5,16 @@
 /*                                                     +:+                    */
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/23 11:01:05 by igvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/23 11:01:05 by igvan-de      ########   odam.nl         */
+/*   Created: 2019/01/23 11:01:05 by igvan-de       #+#    #+#                */
+/*   Updated: 2019/10/07 18:45:52 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
+	if (c >= '0' && c <= '9')// && c >= MIN_INT && c <= MAX_INT)
 		return (1);
 	else
 		return (0);

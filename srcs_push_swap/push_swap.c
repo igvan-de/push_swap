@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 12:56:39 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/07 18:06:25 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ static void	valid_input(int argc, char **argv)
 		exit(0);
 	while (i < argc)
 	{
-		argv++;
-		if (ft_isnum(*argv) == 0)
+		if (ft_isnum(argv[i]) == 0)
 		{
 			ft_printf(COLOR_BOLD_RED"ERROR\n"COLOR_RESET);
 			exit(0);
