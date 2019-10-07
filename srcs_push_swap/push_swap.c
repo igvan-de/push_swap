@@ -6,32 +6,11 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/29 15:56:31 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/07 12:56:39 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	valid_input(int argc, char **argv)
-{
-	int		i;
-
-	i = 1;
-	if (argc <= 1)
-		exit(0);
-	if (argc == 2 && ft_isnum(argv[i]) == 1)
-		exit(0);
-	while (i < argc)
-	{
-		argv++;
-		if (ft_isnum(*argv) == 0)
-		{
-			ft_printf(COLOR_BOLD_RED"ERROR\n"COLOR_RESET);
-			exit(0);
-		}
-		i++;
-	}
-}
 
 static void	double_input(char **argv)
 {
@@ -78,6 +57,29 @@ static void	is_sorted(char **argv)
 	}
 }
 
+static void	valid_input(int argc, char **argv)
+{
+	int		i;
+
+	i = 1;
+	if (argc <= 1)
+		exit(0);
+	if (argc == 2 && ft_isnum(argv[i]) == 1)
+		exit(0);
+	while (i < argc)
+	{
+		argv++;
+		if (ft_isnum(*argv) == 0)
+		{
+			ft_printf(COLOR_BOLD_RED"ERROR\n"COLOR_RESET);
+			exit(0);
+		}
+		i++;
+	}
+	double_input(argv);
+	is_sorted(argv);
+}
+
 int			main(int argc, char **argv)
 {
 	t_stack		*stack_a;
@@ -88,8 +90,6 @@ int			main(int argc, char **argv)
 
 	i = 1;
 	valid_input(argc, argv);
-	double_input(argv);
-	is_sorted(argv);
 	stack_a = NULL;
 	stack_b = NULL;
 	chunk = (t_chunk*)ft_memalloc(sizeof(t_chunk));

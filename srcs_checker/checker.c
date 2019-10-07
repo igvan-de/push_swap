@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/29 16:25:12 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/07 14:33:24 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ static void	read_stdin(t_stack *stack_a, t_stack *stack_b, t_options *option)
 
 	line = NULL;
 	option->count = 1;
+	if (stack_a == NULL && !(option->flags & FLAG_HELP))
+		return ;
 	option_print(stack_a, stack_b, option, line);
 	while (get_next_line(0, &line) > 0)
 	{
