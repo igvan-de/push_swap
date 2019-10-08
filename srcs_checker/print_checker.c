@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 14:11:33 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/08 14:41:44 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,5 @@ void		option_print(t_stack *stack_a, t_stack *stack_b, t_options *option,
 		else
 			print(stack_a, stack_b);
 	}
-	if (option->flags & FLAG_T)
-		sleep(1);
+	timed_print(option);
 }

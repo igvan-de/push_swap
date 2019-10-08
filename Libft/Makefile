@@ -6,12 +6,13 @@
 #    By: igvan-de <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/17 12:10:38 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/09/25 15:58:51 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/10/08 13:38:28 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SRCS =	ft_atoi.c \
+		ft_atoilong.c \
 		ft_bzero.c \
 		ft_isalnum.c \
 		ft_isalpha.c \

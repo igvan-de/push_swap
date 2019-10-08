@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 15:26:00 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/08 12:47:32 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
-
 # include "ft_printf.h"
 # include <stdlib.h>
+
+# define MIN_INT -2147483648
+# define MAX_INT 2147483647
 
 typedef struct			s_stack
 {

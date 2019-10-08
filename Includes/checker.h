@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/15 13:01:02 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 15:26:03 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/08 14:44:32 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,8 @@ void					ft_stackaddback(t_stack **stack, t_stack *new);
 void					option_print(t_stack *stack_a, t_stack *stack_b,
 						t_options *option, char *line);
 void					print(t_stack *stack_a, t_stack *stack_b);
+void					timed_print(t_options *option);
+void					result_print(t_stack *stack_a, t_stack *stack_b,
+						t_options *option);
 
 #endif

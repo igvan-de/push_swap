@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 18:06:25 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/08 14:47:24 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,22 @@ static void	is_sorted(char **argv)
 	}
 }
 
+static void	valid_value(char **argv)
+{
+	int i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_atoilong(argv[i]) < MIN_INT || ft_atoilong(argv[i]) > MAX_INT)
+		{
+			ft_printf(COLOR_BOLD_RED"ERROR\n"COLOR_RESET);
+			exit(0);
+		}
+		i++;
+	}
+}
+
 static void	valid_input(int argc, char **argv)
 {
 	int		i;
@@ -77,6 +93,7 @@ static void	valid_input(int argc, char **argv)
 	}
 	double_input(argv);
 	is_sorted(argv);
+	valid_value(argv);
 }
 
 int			main(int argc, char **argv)

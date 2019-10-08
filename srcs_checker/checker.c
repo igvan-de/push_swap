@@ -6,16 +6,21 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 12:37:26 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 15:27:14 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/08 14:50:36 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	wrong_input(t_options *option)
+static void	wrong_input(char *line, t_options *option)
 {
-	option->flags |= FLAG_WRONG_INPUT;
-	ft_printf("Please give a valid operation to execute\n");
+	if (ft_strcmp(line, "\033[01;31mERROR") == 0)
+		exit(0);
+	else
+	{
+		option->flags |= FLAG_WRONG_INPUT;
+		ft_printf("Please give a valid operation to execute\n");
+	}
 }
 
 static void	stdin_compare(char *line, t_stack **stack_a, t_stack **stack_b,
@@ -44,7 +49,7 @@ static void	stdin_compare(char *line, t_stack **stack_a, t_stack **stack_b,
 	else if (ft_strcmp(line, "rrr") == 0)
 		rrr(stack_a, stack_b);
 	else
-		wrong_input(option);
+		wrong_input(line, option);
 }
 
 static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
@@ -60,19 +65,18 @@ static void	checker_sort(t_stack *stack_a, t_stack *stack_b, t_options *option)
 			{
 				if (prob->number > prob->next->number)
 				{
-					if (option->flags & FLAG_R)
-						print(stack_a, stack_b);
+					result_print(stack_a, stack_b, option);
 					ft_printf(COLOR_BOLD_RED"KO\n"COLOR_RESET);
 					exit(0);
 				}
 			}
 			prob = prob->next;
 		}
-		if (option->flags & FLAG_R)
-			print(stack_a, stack_b);
+		result_print(stack_a, stack_b, option);
 		ft_printf(COLOR_BOLD_GREEN"OK\n"COLOR_RESET);
 		exit(0);
 	}
+	result_print(stack_a, stack_b, option);
 	ft_printf(COLOR_BOLD_RED"KO\n"COLOR_RESET);
 }
 
