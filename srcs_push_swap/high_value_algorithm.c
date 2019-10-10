@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   algorithm.c                                        :+:    :+:            */
+/*   high_value_algorithm.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/22 13:58:54 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 15:25:30 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/10 13:56:45 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	swap(t_stack **stack_a, t_stack **stack_b, t_chunk *chunk,
 	}
 }
 
-void		algorithm(t_stack **stack_a, t_stack **stack_b,
+void		high_value_algorithm(t_stack **stack_a, t_stack **stack_b,
 			t_chunk *chunk, int i)
 {
 	t_value		*value;

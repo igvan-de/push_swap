@@ -6,7 +6,7 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/10/08 14:44:05 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/10/10 13:19:38 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ SRCS_CHECKER = ./srcs_checker/checker.c ./srcs_checker/print_checker.c \
 				./srcs_overarching/operations_double.c ./srcs_overarching/stack.c \
 				./srcs_checker/extra_print.c
 SRCS_PUSH_SWAP = ./srcs_push_swap/push_swap.c ./srcs_push_swap/delnode.c \
-				 ./srcs_push_swap/chunk.c ./srcs_push_swap/algorithm.c \
+				 ./srcs_push_swap/chunk.c ./srcs_push_swap/high_value_algorithm.c \
 				 ./srcs_push_swap/push_back.c ./srcs_push_swap/print_push_swap.c \
 				  ./srcs_push_swap/check_conditions.c ./srcs_overarching/operators.c \
-				  ./srcs_overarching/operations_double.c ./srcs_overarching/stack.c 
+				  ./srcs_overarching/operations_double.c ./srcs_overarching/stack.c \
+				  ./srcs_push_swap/low_value_algorithm.c
 OBJ_PUSH_SWAP = $(SRCS_PUSH_SWAP:%.c=%.o)
 OBJ_CHECKER = $(SRCS_CHECKER:%.c=%.o)
 INCLUDE = -I ./Includes
