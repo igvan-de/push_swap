@@ -6,11 +6,41 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/10 13:21:58 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/10 16:42:04 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/12 15:22:07 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+///////REMOVE!!!!!!!!
+
+void		print_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack *tmp;
+
+	tmp = stack_a;
+	if (stack_a == NULL)
+		return ;
+	ft_printf("a = ");
+	while (tmp != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+	if (stack_b == NULL)
+		return ;
+	tmp = stack_b;
+	ft_printf("b = ");
+	while (tmp != NULL)
+	{
+		ft_printf("%d ", tmp->number);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+}
+
+////////////
 
 static int	find_lowest(t_stack **stack_a)
 {
@@ -47,36 +77,72 @@ static int	steps_to_lowest(t_stack **stack_a)
 	return (0);
 }
 
-void		low_value_algorithm(t_stack **stack_a, t_stack **stack_b)
+static int	check_sorted(t_stack **stack_a)
 {
 	t_stack	*tmp;
+
+	tmp= *stack_a;
+	if (tmp->next == NULL)
+		return (0);
+	while (tmp->next != NULL)
+	{
+		if (tmp->number > tmp->next->number)
+			return (-1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+void		low_value_algorithm(t_stack **stack_a, t_stack **stack_b, int i)
+{
 	int		count_start;
 	int		count_end;
 	int		lowest;
 
-	tmp = *stack_a;
 	if (stack_a == NULL)
 		return ;
-	lowest = find_lowest(stack_a);
-	count_start = steps_to_lowest(stack_a);
-	reverse(stack_a);
-	count_end = steps_to_lowest(stack_a);
-	reverse(stack_a);
-	ft_printf("start = %d\nend = %d\n", count_start, count_end);
-	while(tmp)
+	if (check_sorted(stack_a) != 0)
 	{
-		if (count_start < count_end)
-		{
-			ra_rb(stack_a);
-			ft_printf("ra\n");
-			// check_sorted();
-		}
-		if (count_start > count_end)
-		{
-			rra_rrb(stack_a);
-			ft_printf("rra\n");
-		}
-		tmp = tmp->next;
+		lowest = find_lowest(stack_a);
+		count_start = steps_to_lowest(stack_a);
+		reverse(stack_a);
+		count_end = steps_to_lowest(stack_a);
+		reverse(stack_a);
+		// ft_printf("start = %d\nend = %d\n", count_start, count_end);
 	}
-	stack_b = NULL;
+	while (i > 0)
+	{
+		if (check_sorted(stack_a) == 0 && stack_b == NULL)
+			exit(0);
+		if (check_sorted(stack_a) == -1)
+		{
+			if (count_start < count_end)
+			{
+				pa_pb(stack_a, stack_b);
+				ft_printf("pa\n");
+			}
+			if (count_start > count_end)
+			{
+				rra_rrb(stack_a);
+				ft_printf("rra\n");
+				if (check_sorted(stack_a) == -1)
+				{
+					pa_pb(stack_a, stack_b);
+					ft_printf("pa\n");
+				}
+			}
+		}
+		if (check_sorted(stack_a) == 0 && stack_b != NULL)
+		{
+			pa_pb(stack_b, stack_a);
+			ft_printf("pb\n");
+		}	
+		else if ((*stack_a)->number > (*stack_a)->next->number)
+		{
+			sa_sb(stack_a);
+			ft_printf("sa\n");
+		}
+		i--;
+	}
+	// print_stacks(*stack_a, *stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/10 13:39:53 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/12 15:21:14 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int			main(int argc, char **argv)
 	if (i > 10)
 		high_value_algorithm(&stack_a, &stack_b, chunk, i - 1);
 	else
-		low_value_algorithm(&stack_a, &stack_b);
+		low_value_algorithm(&stack_a, &stack_b, i);
 	exit(0);
 	return (0);
 }
