@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/10 13:21:58 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/12 15:22:07 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/13 14:49:05 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,33 +95,40 @@ static int	check_sorted(t_stack **stack_a)
 
 void		low_value_algorithm(t_stack **stack_a, t_stack **stack_b, int i)
 {
-	int		count_start;
-	int		count_end;
+	int		value_start;
+	int		value_end;
 	int		lowest;
-
+	
 	if (stack_a == NULL)
 		return ;
-	if (check_sorted(stack_a) != 0)
-	{
-		lowest = find_lowest(stack_a);
-		count_start = steps_to_lowest(stack_a);
-		reverse(stack_a);
-		count_end = steps_to_lowest(stack_a);
-		reverse(stack_a);
-		// ft_printf("start = %d\nend = %d\n", count_start, count_end);
-	}
 	while (i > 0)
 	{
-		if (check_sorted(stack_a) == 0 && stack_b == NULL)
-			exit(0);
 		if (check_sorted(stack_a) == -1)
 		{
-			if (count_start < count_end)
+			lowest = find_lowest(stack_a);
+			value_start = steps_to_lowest(stack_a);
+			reverse(stack_a);
+			value_end = steps_to_lowest(stack_a);
+			reverse(stack_a);
+			if (value_start <= value_end)
 			{
-				pa_pb(stack_a, stack_b);
-				ft_printf("pa\n");
+				if ((*stack_a)->number == lowest)
+				{
+					pa_pb(stack_a, stack_b);
+					ft_printf("pb\n");
+				}
+				if ((*stack_a)->next->number == lowest)
+				{
+					sa_sb(stack_a);
+					ft_printf("sa\n");
+					if (check_sorted(stack_a) == -1)
+					{
+						pa_pb(stack_a, stack_b);
+						ft_printf("pa\n");
+					}
+				}
 			}
-			if (count_start > count_end)
+			if (value_start > value_end)
 			{
 				rra_rrb(stack_a);
 				ft_printf("rra\n");
@@ -132,17 +139,12 @@ void		low_value_algorithm(t_stack **stack_a, t_stack **stack_b, int i)
 				}
 			}
 		}
-		if (check_sorted(stack_a) == 0 && stack_b != NULL)
+		if (check_sorted(stack_a) == 0 && *stack_b != NULL)
 		{
 			pa_pb(stack_b, stack_a);
 			ft_printf("pb\n");
-		}	
-		else if ((*stack_a)->number > (*stack_a)->next->number)
-		{
-			sa_sb(stack_a);
-			ft_printf("sa\n");
 		}
 		i--;
+		// print_stacks(*stack_a, *stack_b);
 	}
-	// print_stacks(*stack_a, *stack_b);
 }
