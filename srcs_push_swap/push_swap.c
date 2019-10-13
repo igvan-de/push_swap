@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/13 11:24:21 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/13 16:04:21 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,22 +79,12 @@ static void	valid_input(int argc, char **argv)
 	valid_value(argv);
 }
 
-void	is_sorted(char **argv)
+static void	algorithm(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk, int i)
 {
-	int	i;
-
-	i = 1;
-	while (argv[i])
-	{
-		if (ft_atoi(argv[i]) < ft_atoi(argv[i + 1]))
-		{
-			i++;
-			if (argv[i + 1] == '\0')
-				exit(0);
-		}
-		else
-			break ;
-	}
+	if (i > 10)
+		high_value_algorithm(&stack_a, &stack_b, chunk, i - 1);
+	else
+		low_value_algorithm(&stack_a, &stack_b, i);
 }
 
 int			main(int argc, char **argv)
@@ -120,10 +110,7 @@ int			main(int argc, char **argv)
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	if (i > 10)
-		high_value_algorithm(&stack_a, &stack_b, chunk, i - 1);
-	else
-		low_value_algorithm(&stack_a, &stack_b, i);
+	algorithm(stack_a, stack_b, chunk, i);
 	exit(0);
 	return (0);
 }

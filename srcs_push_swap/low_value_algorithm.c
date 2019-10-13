@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/10 13:21:58 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/13 14:49:05 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/13 16:18:04 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void		low_value_algorithm(t_stack **stack_a, t_stack **stack_b, int i)
 					if (check_sorted(stack_a) == -1)
 					{
 						pa_pb(stack_a, stack_b);
-						ft_printf("pa\n");
+						ft_printf("pb\n");
 					}
 				}
 			}
@@ -135,14 +135,14 @@ void		low_value_algorithm(t_stack **stack_a, t_stack **stack_b, int i)
 				if (check_sorted(stack_a) == -1)
 				{
 					pa_pb(stack_a, stack_b);
-					ft_printf("pa\n");
+					ft_printf("pb\n");
 				}
 			}
 		}
 		if (check_sorted(stack_a) == 0 && *stack_b != NULL)
 		{
 			pa_pb(stack_b, stack_a);
-			ft_printf("pb\n");
+			ft_printf("pa\n");
 		}
 		i--;
 		// print_stacks(*stack_a, *stack_b);

@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/23 16:21:06 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/07 15:11:41 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/13 15:40:28 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,23 @@ void	conditions_push_back(t_stack **stack_b, int start, int end)
 			ft_printf("rrb\n");
 			end--;
 		}
+	}
+}
+
+void	is_sorted(char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) < ft_atoi(argv[i + 1]))
+		{
+			i++;
+			if (argv[i + 1] == '\0')
+				exit(0);
+		}
+		else
+			break ;
 	}
 }
