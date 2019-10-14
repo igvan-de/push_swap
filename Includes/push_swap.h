@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/12 15:21:37 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/14 17:47:45 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,25 @@ void					find_highest(t_stack *stack, t_chunk *chunk);
 /*
 **===============================ALGORITHM FUNCTIONS===========================
 */
+int						check_sorted(t_stack **stack_a);
+int						search_lowest(t_stack **stack_a);
+int						steps_to_lowest(t_stack **stack_a);
+int						search_next_lowest(t_stack **stack_a, int lowest);
+
 void					high_value_algorithm(t_stack **stack_a,
 						t_stack **stack_b, t_chunk *chunk, int i);
-void					low_value_algorithm(t_stack **stack_a, t_stack **stack_b,
-						int i);
+void					low_value_algorithm(t_stack **stack_a,
+						t_stack **stack_b, int i);
 void					push_back(t_stack **stack_a, t_stack **stack_b,
 						t_chunk *chunk);
+void					lowest_start(t_stack **stack_a, t_stack **stack_b,
+						int lowest);
+void					lowest_end(t_stack **stack_a, t_stack **stack_b);
+void					give_value(t_stack **stack_a, int *value_start,
+						int *value_end);
+void					lowest_at_beginning(t_stack **stack_a, int lowest);
+void					lowest_not_at_beginning(t_stack **stack_a, int lowest,
+						int value_start, int value_end);
 void					is_sorted(char **argv);
 
 /*
