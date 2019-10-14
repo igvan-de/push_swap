@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/18 14:18:00 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/08 14:41:44 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/14 18:13:09 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ void		option_print(t_stack *stack_a, t_stack *stack_b, t_options *option,
 {
 	if (option->flags & FLAG_HELP)
 		print_help();
-	if (option->flags & FLAG_I && !(option->flags & FLAG_WRONG_INPUT))
+	if (option->flags & FLAG_I && !(option->flags & FLAG_WRONG_INPUT)
+		&& option->count != 0)
 	{
 		ft_printf(COLOR_DARK_GRAY"====== STEP %d ======\n", option->count);
 		ft_printf(COLOR_RESET);
