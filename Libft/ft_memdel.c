@@ -6,7 +6,7 @@
 /*   By: igvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/24 12:26:35 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/09/25 16:00:16 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/17 16:31:55 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
+	if (ap == NULL)
+		return ;
 	free(*ap);
 	*ap = NULL;
 }

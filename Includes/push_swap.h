@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/14 17:47:45 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/17 16:24:27 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_stack					*ft_emptynode(void);
 void					ft_stackaddfront(t_stack **alst, t_stack *new);
 void					ft_stackaddback(t_stack **node, t_stack *new);
 void					ft_delnode(t_stack *stack);
+void					memdel_stack(t_stack **stack);
 void					reverse(t_stack **stack);
 
 /*

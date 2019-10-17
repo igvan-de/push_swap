@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/09/11 15:33:40 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/14 17:51:24 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/10/17 18:00:35 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ static void	valid_input(int argc, char **argv)
 	valid_value(argv);
 }
 
-static void	algorithm(t_stack *stack_a, t_stack *stack_b, t_chunk *chunk, int i)
+static void	algorithm(t_stack **stack_a, t_stack *stack_b, t_chunk *chunk, int i)
 {
 	if (i > 10)
-		high_value_algorithm(&stack_a, &stack_b, chunk, i - 1);
+		high_value_algorithm(stack_a, &stack_b, chunk, i - 1);
 	else
-		low_value_algorithm(&stack_a, &stack_b, i - 1);
+		low_value_algorithm(stack_a, &stack_b, i - 1);
 }
 
 int			main(int argc, char **argv)
@@ -109,7 +109,8 @@ int			main(int argc, char **argv)
 		ft_stackaddback(&stack_a, new_stack_a);
 		i++;
 	}
-	algorithm(stack_a, stack_b, chunk, i);
-	exit(0);
+	algorithm(&stack_a, stack_b, chunk, i);
+	memdel_stack(&stack_a);
+	memdel_stack(&stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/10/14 17:49:19 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/10/17 16:36:12 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,16 +29,16 @@ SRCS_PUSH_SWAP = ./srcs_push_swap/push_swap.c ./srcs_push_swap/delnode.c \
 OBJ_PUSH_SWAP = $(SRCS_PUSH_SWAP:%.c=%.o)
 OBJ_CHECKER = $(SRCS_CHECKER:%.c=%.o)
 INCLUDE = -I ./Includes
-FLAGS = -Wall -Werror -Wextra $(INCLUDE)
-LIB = Printf/libftprintf.a
+FLAGS = -Wall -Werror -Wextra -g $(INCLUDE) #remove -g
+LIB = printf/libftprintf.a
 NORM = norminette $(SRCS) $(HEADER) | grep -e "Error" -e "Warning" -B 1
 PRINT_PLUS = $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFAULT)')
 
 all: $(LIB) $(OBJ_PUSH_SWAP) $(OBJ_CHECKER) $(CHECKER) $(PUSH_SWAP)
 
 $(LIB):
-	@make -C Libft
-	@make -C Printf
+	@make -C libft
+	@make -C printf
 
 %.o: %.c
 	@gcc $(FLAGS) -o $@ $< -c
