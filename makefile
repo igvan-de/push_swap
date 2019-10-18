@@ -6,15 +6,13 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/10/18 12:38:47 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/10/18 12:39:54 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 COLOR_GREEN = $(shell printf "\e[38;5;10m")
 COLOR_DEFAULT = $(shell printf "\e[39m")
 
-# CHECKER = checker
-# PUSH_SWAP = push_swap
 NAME = push_swap checker
 SRCS_CHECKER = ./srcs_checker/checker.c ./srcs_checker/print_checker.c \
 				./srcs_checker/checker_input.c ./srcs_overarching/operators.c \
