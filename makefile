@@ -1,20 +1,21 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    makefile                                           :+:    :+:             #
+#    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/10/17 16:36:12 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/10/18 12:38:47 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 COLOR_GREEN = $(shell printf "\e[38;5;10m")
 COLOR_DEFAULT = $(shell printf "\e[39m")
 
-CHECKER = checker
-PUSH_SWAP = push_swap
+# CHECKER = checker
+# PUSH_SWAP = push_swap
+NAME = push_swap checker
 SRCS_CHECKER = ./srcs_checker/checker.c ./srcs_checker/print_checker.c \
 				./srcs_checker/checker_input.c ./srcs_overarching/operators.c \
 				./srcs_overarching/operations_double.c ./srcs_overarching/stack.c \
@@ -29,12 +30,12 @@ SRCS_PUSH_SWAP = ./srcs_push_swap/push_swap.c ./srcs_push_swap/delnode.c \
 OBJ_PUSH_SWAP = $(SRCS_PUSH_SWAP:%.c=%.o)
 OBJ_CHECKER = $(SRCS_CHECKER:%.c=%.o)
 INCLUDE = -I ./Includes
-FLAGS = -Wall -Werror -Wextra -g $(INCLUDE) #remove -g
+FLAGS = -Wall -Werror -Wextra $(INCLUDE)
 LIB = printf/libftprintf.a
 NORM = norminette $(SRCS) $(HEADER) | grep -e "Error" -e "Warning" -B 1
 PRINT_PLUS = $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFAULT)')
 
-all: $(LIB) $(OBJ_PUSH_SWAP) $(OBJ_CHECKER) $(CHECKER) $(PUSH_SWAP)
+all: $(NAME)
 
 $(LIB):
 	@make -C libft
@@ -43,11 +44,11 @@ $(LIB):
 %.o: %.c
 	@gcc $(FLAGS) -o $@ $< -c
 
-$(CHECKER): $(OBJ_CHECKER)
+checker: $(OBJ_CHECKER) $(LIB)
 	@gcc $(FLAGS) $(OBJ_CHECKER) $(LIB) -o checker
 	@echo "$(PRINT_PLUS) Compiling completed"
 
-$(PUSH_SWAP): $(OBJ_PUSH_SWAP)
+push_swap: $(OBJ_PUSH_SWAP) $(LIB)
 	@gcc $(FLAGS) $(OBJ_PUSH_SWAP) $(LIB) -o push_swap
 	@echo "$(PRINT_PLUS) Compiling completed"
 
