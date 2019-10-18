@@ -6,7 +6,7 @@
 #    By: igvan-de <igvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/07/17 14:11:56 by igvan-de       #+#    #+#                 #
-#    Updated: 2019/10/18 18:12:15 by igvan-de      ########   odam.nl          #
+#    Updated: 2019/10/18 18:13:17 by igvan-de      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,12 +52,12 @@ push_swap: $(OBJ_PUSH_SWAP) $(LIB)
 
 clean:
 	@rm -f $(OBJ_PUSH_SWAP) && rm -f $(OBJ_CHECKER)
-	@make -C ./Libft clean && make -C ./Printf clean
+	@make -C ./libft clean && make -C ./printf clean
 	@echo "$(PRINT_PLUS) Cleaning objectives completed"
 
 fclean: clean
 	@rm -f checker && rm -f push_swap
-	@make -C ./Libft fclean && make -C ./Printf fclean
+	@make -C ./libft fclean && make -C ./printf fclean
 	@echo "$(PRINT_PLUS) Cleaning all completed"
 
 re: fclean all
