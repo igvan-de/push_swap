@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/14 15:24:48 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/14 17:58:10 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/12/27 18:14:42 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,41 @@ void	lowest_start(t_stack **stack_a, t_stack **stack_b, int lowest)
 	{
 		pa_pb(stack_a, stack_b);
 		ft_printf("pb\n");
+		return ;
 	}
-	if ((*stack_a)->next->number == lowest)
+	while ((*stack_a)->number != lowest)
 	{
-		sa_sb(stack_a);
-		ft_printf("sa\n");
-		if (check_sorted(stack_a) == -1)
+		if ((*stack_a)->next->number == lowest)
+		{
+			sa_sb(stack_a);
+			ft_printf("sa\n");
+		}
+		else
+		{
+			ra_rb(stack_a);
+			ft_printf("ra\n");
+		}
+		if ((*stack_a)->number == lowest)
 		{
 			pa_pb(stack_a, stack_b);
 			ft_printf("pb\n");
+			return ;
 		}
 	}
 }
 
-void	lowest_end(t_stack **stack_a, t_stack **stack_b)
+void	lowest_end(t_stack **stack_a, t_stack **stack_b, int lowest)
 {
-	rra_rrb(stack_a);
-	ft_printf("rra\n");
-	if (check_sorted(stack_a) == -1)
+	while ((*stack_a)->number != lowest)
 	{
-		pa_pb(stack_a, stack_b);
-		ft_printf("pb\n");
+		rra_rrb(stack_a);
+		ft_printf("rra\n");
+		if ((*stack_a)->number == lowest)
+		{
+			pa_pb(stack_a, stack_b);
+			ft_printf("pb\n");
+			return ;
+		}
 	}
 }
 

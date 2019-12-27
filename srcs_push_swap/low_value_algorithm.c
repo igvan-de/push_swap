@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/10 13:21:58 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/14 17:56:59 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/12/27 18:13:46 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ static void	bigger_then_three(t_stack **stack_a, t_stack **stack_b, int i)
 			if (value_start <= value_end)
 				lowest_start(stack_a, stack_b, lowest);
 			if (value_start > value_end)
-				lowest_end(stack_a, stack_b);
+				lowest_end(stack_a, stack_b, lowest);
 		}
-		if (check_sorted(stack_a) == 0 && *stack_b != NULL)
+		while (check_sorted(stack_a) == 0 && *stack_b != NULL)
 		{
 			pa_pb(stack_b, stack_a);
 			ft_printf("pa\n");

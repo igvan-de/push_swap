@@ -6,7 +6,7 @@
 /*   By: igvan-de <igvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/07/17 15:15:31 by igvan-de       #+#    #+#                */
-/*   Updated: 2019/10/17 16:24:27 by igvan-de      ########   odam.nl         */
+/*   Updated: 2019/12/27 18:14:09 by igvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void					push_back(t_stack **stack_a, t_stack **stack_b,
 						t_chunk *chunk);
 void					lowest_start(t_stack **stack_a, t_stack **stack_b,
 						int lowest);
-void					lowest_end(t_stack **stack_a, t_stack **stack_b);
+void					lowest_end(t_stack **stack_a, t_stack **stack_b,
+						int lowest);
 void					give_value(t_stack **stack_a, int *value_start,
 						int *value_end);
 void					lowest_at_beginning(t_stack **stack_a, int lowest);
