@@ -21,7 +21,7 @@ $ make
 ```
 
 # Run executables
-(for example)
+for example:
 ```
 $ ARGV=(-70 -51 55 -31 9); ./push_swap $ARGV | ./checker $ARGV
 ```
